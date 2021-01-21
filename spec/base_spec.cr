@@ -33,7 +33,7 @@ describe RethinkORM::Base do
   it "should support serialisation" do
     base = BasicModel.create(name: "joe")
     base_id = base.id
-    base.to_json.should eq ({name: "joe", age: 0, id: base_id}.to_json)
+    base.to_json.should eq ({id: base_id, name: "joe", age: 0}.to_json)
 
     base.destroy
   end

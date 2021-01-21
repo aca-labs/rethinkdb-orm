@@ -8,6 +8,8 @@ module RethinkORM::Persistence
   @@table_created = false
 
   # :nodoc:
+  @[JSON::Field(ignore: true)]
+  @[YAML::Field(ignore: true)]
   property _new_flag = false
 
   # Id generated on save or set on load
@@ -24,11 +26,9 @@ module RethinkORM::Persistence
     !(new_record? || destroyed?)
   end
 
-  property destroyed = false
-
-  def destroyed?
-    destroyed
-  end
+  @[JSON::Field(ignore: true)]
+  @[YAML::Field(ignore: true)]
+  property? destroyed : Bool = false
 
   macro included
 

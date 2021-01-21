@@ -22,9 +22,9 @@ module RethinkORM
     # Key is not an index, PKs are 127 chars.
     attribute key : String
 
-    attribute instance_token : String, converter: TokenRefresher
+    attribute instance_token : String, converter: ::RethinkORM::Lock::TokenRefresher
 
-    attribute expires_at : Time, converter: FloatEpochConverter
+    attribute expires_at : Time, converter: ::RethinkORM::Lock::FloatEpochConverter
 
     secondary_index key
     secondary_index instance_token
@@ -33,10 +33,17 @@ module RethinkORM
     validates :key, presence: true
 
     # Seconds before the lock expires
+    @[JSON::Field(ignore: true)]
+    @[YAML::Field(ignore: true)]
     property expire : Time::Span = Lock.settings.lock_expire
+
     # Lock acquisition timeout
+    @[JSON::Field(ignore: true)]
+    @[YAML::Field(ignore: true)]
     property timeout : Time::Span = Lock.settings.lock_timeout
 
+    @[JSON::Field(ignore: true)]
+    @[YAML::Field(ignore: true)]
     getter? locked : Bool = false
 
     # Returns all expired locks
@@ -164,6 +171,8 @@ module RethinkORM
       end
     end
 
+    @[JSON::Field(ignore: true)]
+    @[YAML::Field(ignore: true)]
     @previous_expire : Time::Span? = nil
 
     private def set_expiration(expire : Time::Span? = nil, use_previous : Bool = false)
@@ -198,7 +207,9 @@ module RethinkORM
     {% end %}
 
     # NOTE: Necessary as overriding `from_trusted_json` wasn't working
-    private module TokenRefresher
+    #
+    # :nodoc:
+    module TokenRefresher
       def self.from_json(value : JSON::PullParser) : String
         value.read_string # Just pull the string, and ignore it.
         Lock.new_instance_token
@@ -211,7 +222,9 @@ module RethinkORM
 
     # This module converts an epoch to a decimal seconds.
     # RethinkDB's epochs are floats!?
-    private module FloatEpochConverter
+    #
+    # :nodoc:
+    module FloatEpochConverter
       def self.from_json(value : JSON::PullParser) : Time
         float_milliseconds = value.read_float * 1000
         Time.unix_ms(float_milliseconds.to_i64)
