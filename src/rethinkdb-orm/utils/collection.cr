@@ -27,7 +27,7 @@ module RethinkORM
       else
         begin
           T.from_trusted_json result.as(RethinkDB::QueryResult).to_json
-        rescue e : JSON::MappingError
+        rescue e : JSON::SerializableError
           if e.message.try &.includes?("Expected BeginObject but was BeginArray")
             atom_iterator = result.as(RethinkDB::QueryResult)
               .as_a
