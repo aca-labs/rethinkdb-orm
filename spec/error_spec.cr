@@ -13,7 +13,7 @@ class RethinkORM::Error
       m = ModelWithValidations.new("")
       m.valid?.should be_false
       e = DocumentInvalid.new(m)
-      e.to_s.should eq "name is required, age must be greater than 20"
+      e.to_s.should eq "ModelWithValidations has invalid fields. `name` is required, `age` must be greater than 20"
     end
   end
 end

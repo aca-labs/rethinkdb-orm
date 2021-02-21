@@ -1,0 +1,3 @@
+dependencies:
+  retriable:
+    github: Sija/retriable.cr

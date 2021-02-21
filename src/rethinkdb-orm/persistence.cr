@@ -96,7 +96,7 @@ module RethinkORM::Persistence
   #
   # Non-atomic updates are required for multidocument updates
   def update(**attributes)
-    update(**attributes)
+    update!(**attributes)
     true
   rescue RethinkORM::Error
     false

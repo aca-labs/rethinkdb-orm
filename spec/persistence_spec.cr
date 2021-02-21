@@ -150,16 +150,16 @@ describe RethinkORM::Persistence do
   end
 
   it "performs validations" do
-    model = ModelWithValidations.new
+    model = ModelWithValidations.new(name: "")
 
     model.valid?.should be_false
 
     # Test create
     result = model.save
     result.should be_false
-    model.errors.size.should eq 1
+    model.errors.size.should eq 2
 
-    expect_raises(RethinkORM::Error::DocumentInvalid) do
+    expect_raises(RethinkORM::Error::DocumentInvalid, message: "ModelWithValidations has invalid fields. `name` is required, `age` must be greater than 20") do
       model.save!
     end
 
@@ -172,18 +172,12 @@ describe RethinkORM::Persistence do
     model.valid?.should be_true
 
     # Test update
-    model.name = ""
+    model.age = 5
     model.valid?.should be_false
     model.save.should be_false
-    expect_raises(RethinkORM::Error::DocumentInvalid) do
+    expect_raises(RethinkORM::Error::DocumentInvalid, message: "ModelWithValidations has an invalid field. `age` must be greater than 20") do
       model.save!
     end
-
-    model.age = 23
-    model.name = "joe"
-    model.valid?.should be_true
-    model.save!.should eq model
-
     model.destroy
   end
 

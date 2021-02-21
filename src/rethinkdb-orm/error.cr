@@ -18,7 +18,7 @@ class RethinkORM::Error < Exception
     getter model : RethinkORM::Base
     getter errors : Array(NamedTuple(field: Symbol, message: String))
 
-    def initialize(@model, message = "Document has invalid fields")
+    def initialize(@model, message = nil)
       @errors = @model.errors.map do |e|
         {
           field:   e.field,
@@ -26,16 +26,20 @@ class RethinkORM::Error < Exception
         }
       end
 
+      message = build_message if message.nil?
       super(message)
     end
 
-    def to_s(io : IO)
-      remaining = errors.size
-      errors.each do |error|
-        remaining -= 1
-        io << error[:field].to_s
-        io << " " << error[:message]
-        io << ", " unless remaining.zero?
+    protected def build_message
+      String.build do |io|
+        remaining = errors.size
+        io << @model.class.to_s << ' ' << (remaining > 1 ? "has invalid fields." : "has an invalid field.") << ' '
+        errors.each do |error|
+          remaining -= 1
+          io << '`' << error[:field].to_s << '`'
+          io << " " << error[:message]
+          io << ", " unless remaining.zero?
+        end
       end
     end
 
