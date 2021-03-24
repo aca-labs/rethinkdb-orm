@@ -156,7 +156,7 @@ module RethinkORM
     #
     protected def self.create_index_queries(indices, database = settings.db)
       # Group index queries by table
-      indices.group_by { |index| index[:table] }.transform_values do |queries|
+      indices.group_by(&.[:table]).transform_values do |queries|
         queries.map do |index|
           table = index[:table]
           field = index[:field]

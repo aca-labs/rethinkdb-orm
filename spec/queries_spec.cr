@@ -10,7 +10,7 @@ describe RethinkORM::Queries do
 
     models = BasicModel.all.to_a
     models.size.should eq num_documents
-    models.all? { |m| m.name == "Psyduck" }.should be_true
+    models.all?(&.name.==("Psyduck")).should be_true
   end
 
   it "#find!" do
@@ -143,7 +143,7 @@ describe RethinkORM::Queries do
 
     get_tree_ids = ->(root_id : String) {
       # Refer to ./spec_models for `Tree#by_root_id` query
-      Tree.by_root_id(root_id).to_a.compact_map(&.id).sort
+      Tree.by_root_id(root_id).to_a.compact_map(&.id).sort!
     }
 
     # Check the correct

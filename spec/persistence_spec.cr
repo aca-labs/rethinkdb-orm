@@ -109,7 +109,7 @@ describe RethinkORM::Persistence do
 
     models = BasicModel.all.to_a
     models.size.should eq 5
-    models.all? { |m| m.name == name }.should be_true
+    models.all?(&.name.==(name)).should be_true
 
     BasicModel.clear
     BasicModel.count.should eq 0

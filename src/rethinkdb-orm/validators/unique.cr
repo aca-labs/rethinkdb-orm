@@ -8,9 +8,9 @@ module RethinkORM::Validators
       validate "#{ {{ field }} } should be unique", ->(this: self) do
         {% if scope.empty? %}
           {% scope = [field] %}
-          {% proc_return_type = FIELDS[field.id][:klass].union_types.reject { |t| t == Nil }.join('|').id %}
+          {% proc_return_type = FIELDS[field.id][:klass].union_types.reject(&.==(Nil)).join('|').id %}
         {% else %}
-          {% proc_return_type = "Tuple(#{scope.map { |s| FIELDS[s.id][:klass].union_types.reject { |t| t == Nil }.join('|').id }.join(", ").id})".id %}
+          {% proc_return_type = "Tuple(#{scope.map { |s| FIELDS[s.id][:klass].union_types.reject(&.==(Nil)).join('|').id }.join(", ").id})".id %}
         {% end %}
 
         # Return if any values are nil
@@ -20,8 +20,8 @@ module RethinkORM::Validators
 
         # Construct proc type fron scope array (forgive me mother, for I have sinned)
         # Arguments are not-nillable as nil status is checked above.
-        {% proc_arg_type = "#{scope.map { |s| FIELDS[s.id][:klass].union_types.reject { |t| t == Nil }.join('|').id }.join(", ").id}".id %}
-        {% signature = "#{scope.map { |s| "#{s.id}: #{FIELDS[s.id][:klass].union_types.reject { |t| t == Nil }.join('|').id}" }.join(", ").id}".id %}
+        {% proc_arg_type = "#{scope.map { |s| FIELDS[s.id][:klass].union_types.reject(&.==(Nil)).join('|').id }.join(", ").id}".id %}
+        {% signature = "#{scope.map { |s| "#{s.id}: #{FIELDS[s.id][:klass].union_types.reject(&.==(Nil)).join('|').id}" }.join(", ").id}".id %}
 
         # Handle Transformation block/callback
         {% if transform %}
