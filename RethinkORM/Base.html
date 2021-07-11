@@ -1,0 +1,1610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 0.36.1">
+<meta name="crystal_docs.project_version" content="4.1.1">
+<meta name="crystal_docs.project_name" content="rethinkdb-orm">
+
+
+
+<link href="../css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/doc.js"></script>
+
+  <meta name="repository-name" content="rethinkdb-orm">
+  <title>RethinkORM::Base - rethinkdb-orm 4.1.1</title>
+  <script type="text/javascript">
+    CrystalDocs.base_path = "../";
+  </script>
+</head>
+<body>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="../index.html">
+          rethinkdb-orm
+        </a>
+      </h1>
+
+      <span class="project-version">
+        4.1.1
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class="parent " data-id="rethinkdb-orm/RethinkDB" data-name="rethinkdb">
+      <a href="../RethinkDB.html">RethinkDB</a>
+      
+        <ul>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkDB/Connection" data-name="rethinkdb::connection">
+      <a href="../RethinkDB/Connection.html">Connection</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent open current" data-id="rethinkdb-orm/RethinkORM" data-name="rethinkorm">
+      <a href="../RethinkORM.html">RethinkORM</a>
+      
+        <ul>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/AssociationCollection" data-name="rethinkorm::associationcollection(owner, target)">
+      <a href="../RethinkORM/AssociationCollection.html">AssociationCollection</a>
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Associations" data-name="rethinkorm::associations">
+      <a href="../RethinkORM/Associations.html">Associations</a>
+      
+    </li>
+  
+  <li class=" current" data-id="rethinkdb-orm/RethinkORM/Base" data-name="rethinkorm::base">
+      <a href="../RethinkORM/Base.html">Base</a>
+      
+    </li>
+  
+  <li class="parent " data-id="rethinkdb-orm/RethinkORM/Changefeed" data-name="rethinkorm::changefeed(t)">
+      <a href="../RethinkORM/Changefeed.html">Changefeed</a>
+      
+        <ul>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Changefeed/Event" data-name="rethinkorm::changefeed::event">
+      <a href="../RethinkORM/Changefeed/Event.html">Event</a>
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Changefeed/Raw" data-name="rethinkorm::changefeed::raw">
+      <a href="../RethinkORM/Changefeed/Raw.html">Raw</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Collection" data-name="rethinkorm::collection(t)">
+      <a href="../RethinkORM/Collection.html">Collection</a>
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Connection" data-name="rethinkorm::connection">
+      <a href="../RethinkORM/Connection.html">Connection</a>
+      
+    </li>
+  
+  <li class="parent " data-id="rethinkdb-orm/RethinkORM/Error" data-name="rethinkorm::error">
+      <a href="../RethinkORM/Error.html">Error</a>
+      
+        <ul>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Error/ChangefeedClosed" data-name="rethinkorm::error::changefeedclosed">
+      <a href="../RethinkORM/Error/ChangefeedClosed.html">ChangefeedClosed</a>
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Error/ConnectError" data-name="rethinkorm::error::connecterror">
+      <a href="../RethinkORM/Error/ConnectError.html">ConnectError</a>
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Error/DatabaseError" data-name="rethinkorm::error::databaseerror">
+      <a href="../RethinkORM/Error/DatabaseError.html">DatabaseError</a>
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Error/DocumentExists" data-name="rethinkorm::error::documentexists">
+      <a href="../RethinkORM/Error/DocumentExists.html">DocumentExists</a>
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Error/DocumentInvalid" data-name="rethinkorm::error::documentinvalid">
+      <a href="../RethinkORM/Error/DocumentInvalid.html">DocumentInvalid</a>
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Error/DocumentNotFound" data-name="rethinkorm::error::documentnotfound">
+      <a href="../RethinkORM/Error/DocumentNotFound.html">DocumentNotFound</a>
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Error/DocumentNotSaved" data-name="rethinkorm::error::documentnotsaved">
+      <a href="../RethinkORM/Error/DocumentNotSaved.html">DocumentNotSaved</a>
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Error/LockInvalidOp" data-name="rethinkorm::error::lockinvalidop">
+      <a href="../RethinkORM/Error/LockInvalidOp.html">LockInvalidOp</a>
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Error/LockLost" data-name="rethinkorm::error::locklost">
+      <a href="../RethinkORM/Error/LockLost.html">LockLost</a>
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Error/LockUnavailable" data-name="rethinkorm::error::lockunavailable">
+      <a href="../RethinkORM/Error/LockUnavailable.html">LockUnavailable</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/IdGenerator" data-name="rethinkorm::idgenerator">
+      <a href="../RethinkORM/IdGenerator.html">IdGenerator</a>
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Index" data-name="rethinkorm::index">
+      <a href="../RethinkORM/Index.html">Index</a>
+      
+    </li>
+  
+  <li class="parent " data-id="rethinkdb-orm/RethinkORM/Lock" data-name="rethinkorm::lock">
+      <a href="../RethinkORM/Lock.html">Lock</a>
+      
+        <ul>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Lock/Reentrant" data-name="rethinkorm::lock::reentrant">
+      <a href="../RethinkORM/Lock/Reentrant.html">Reentrant</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Persistence" data-name="rethinkorm::persistence">
+      <a href="../RethinkORM/Persistence.html">Persistence</a>
+      
+    </li>
+  
+  <li class="parent " data-id="rethinkdb-orm/RethinkORM/Queries" data-name="rethinkorm::queries">
+      <a href="../RethinkORM/Queries.html">Queries</a>
+      
+        <ul>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Queries/HasChanges" data-name="rethinkorm::queries::haschanges">
+      <a href="../RethinkORM/Queries/HasChanges.html">HasChanges</a>
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Queries/R" data-name="rethinkorm::queries::r">
+      <a href="../RethinkORM/Queries/R.html">R</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="rethinkdb-orm/RethinkORM/Settings" data-name="rethinkorm::settings">
+      <a href="../RethinkORM/Settings.html">Settings</a>
+      
+        <ul>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Settings/HabitatSettings" data-name="rethinkorm::settings::habitatsettings">
+      <a href="../RethinkORM/Settings/HabitatSettings.html">HabitatSettings</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Table" data-name="rethinkorm::table">
+      <a href="../RethinkORM/Table.html">Table</a>
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Timestamps" data-name="rethinkorm::timestamps">
+      <a href="../RethinkORM/Timestamps.html">Timestamps</a>
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Validators" data-name="rethinkorm::validators">
+      <a href="../RethinkORM/Validators.html">Validators</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">abstract class</span> RethinkORM::Base
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../RethinkORM/Base.html">RethinkORM::Base</a></li><li class="superclass">ActiveModel::Model</li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="included-modules" class="anchor" href="#included-modules">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Included Modules
+  </h2>
+  <ul class="other-types-list">
+    
+      <li class="other-type">ActiveModel::Callbacks</li>
+    
+      <li class="other-type">ActiveModel::Validation</li>
+    
+      <li class="other-type"><a href="../RethinkORM/Associations.html">RethinkORM::Associations</a></li>
+    
+      <li class="other-type"><a href="../RethinkORM/Index.html">RethinkORM::Index</a></li>
+    
+      <li class="other-type"><a href="../RethinkORM/Persistence.html">RethinkORM::Persistence</a></li>
+    
+      <li class="other-type"><a href="../RethinkORM/Queries.html">RethinkORM::Queries</a></li>
+    
+      <li class="other-type"><a href="../RethinkORM/Table.html">RethinkORM::Table</a></li>
+    
+      <li class="other-type"><a href="../RethinkORM/Validators.html">RethinkORM::Validators</a></li>
+    
+  </ul>
+
+
+
+
+
+  <h2>
+    <a id="direct-known-subclasses" class="anchor" href="#direct-known-subclasses">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Direct Known Subclasses
+  </h2>
+  <ul class="other-types-list">
+    
+      <li class="other-type"><a href="../RethinkORM/Lock.html">RethinkORM::Lock</a></li>
+    
+  </ul>
+
+
+
+
+
+
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
+  
+    
+      rethinkdb-orm/base.cr
+    
+    <br/>
+  
+
+
+
+  
+    <h2>
+      <a id="constant-summary" class="anchor" href="#constant-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+      Constant Summary
+    </h2>
+  
+  <dl>
+    
+      <dt class="entry-const" id="AM_PARENT_TYPE">
+        <strong>AM_PARENT_TYPE</strong> = <code>{<span class="n">:type</span> => <span class="t">RethinkORM</span><span class="t">::</span><span class="t">Base</span>} <span class="k">of</span> <span class="t">Nil</span> => <span class="t">Nil</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="INDICES">
+        <strong>INDICES</strong> = <code><span class="o">[]</span> <span class="k">of</span> <span class="t">NamedTuple</span>(field: <span class="t">String</span>, table: <span class="t">String</span>)</code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="TABLES">
+        <strong>TABLES</strong> = <code>[<span class="s">&quot;locks&quot;</span>] <span class="k">of</span> <span class="t">String</span></code>
+      </dt>
+      
+    
+  </dl>
+
+
+
+
+
+  <h2>
+    <a id="class-method-summary" class="anchor" href="#class-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Class Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#all(**options)-class-method" class="signature"><strong>.all</strong>(**options)</a>
+        
+          <div class="summary"><p>Cursor of each model in the database</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#attributes:Array(Symbol)-class-method" class="signature"><strong>.attributes</strong> : Array(Symbol)</a>
+        
+          <div class="summary"><p>Returns all attribute keys.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#changes(id:String?=nil,**options)-class-method" class="signature"><strong>.changes</strong>(id : String? = <span class="n">nil</span>, **options)</a>
+        
+          <div class="summary"><p>Changefeed at document (if id passed) or table level</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#changes(**options,&:RethinkDB::Table-%3EHasChanges)-class-method" class="signature"><strong>.changes</strong>(**options, & : RethinkDB::Table -> HasChanges)</a>
+        
+          <div class="summary"><p>Creates a Changefeed on query </p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#clear-class-method" class="signature"><strong>.clear</strong></a>
+        
+          <div class="summary"><p>Removes all records from the table </p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#collection_query(**options,&)-class-method" class="signature"><strong>.collection_query</strong>(**options, &)</a>
+        
+          <div class="summary"><p><strong>Unsafe</strong> method until <code><a href="../RethinkORM/Base.html#where(&predicate:RethinkDB::DatumTerm-%3ERethinkDB::DatumTerm)-class-method">.where</a></code> can accept more generic arguments Makes 2 <strong>LARGE</strong> assumptions - User correctly scopes the query under the right table - User forms a query that returns a collection of models</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#count(**attrs,&predicate:RethinkDB::DatumTerm-%3ERethinkDB::DatumTerm)-class-method" class="signature"><strong>.count</strong>(**attrs, &predicate : RethinkDB::DatumTerm -> RethinkDB::DatumTerm)</a>
+        
+          <div class="summary"><p>Returns a count of documents for which predicate block is true </p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#count(**attrs)-class-method" class="signature"><strong>.count</strong>(**attrs)</a>
+        
+          <div class="summary"><p>Returns a count of all documents in the table </p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#count-class-method" class="signature"><strong>.count</strong></a>
+        
+          <div class="summary"><p>Returns a count of all documents in the table </p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#create(**attributes)-class-method" class="signature"><strong>.create</strong>(**attributes)</a>
+        
+          <div class="summary"><p>Creates the model.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#create!(**attributes)-class-method" class="signature"><strong>.create!</strong>(**attributes)</a>
+        
+          <div class="summary"><p>Creates the model.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#exists?(id:String,**options)-class-method" class="signature"><strong>.exists?</strong>(id : String, **options)</a>
+        
+          <div class="summary"><p>Check for document presence in the table </p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#find(id:String,**options)-class-method" class="signature"><strong>.find</strong>(id : String, **options)</a>
+        
+          <div class="summary"><p>Find single document by id </p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#find!(id:String,**options)-class-method" class="signature"><strong>.find!</strong>(id : String, **options)</a>
+        
+          <div class="summary"><p>Lookup document by id</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#find_all(ids:Array%7CTuple,**options)-class-method" class="signature"><strong>.find_all</strong>(ids : Array | Tuple, **options)</a>
+        
+          <div class="summary"><p>Query by ids, optionally set a secondary index </p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#find_by(**attribute)-class-method" class="signature"><strong>.find_by</strong>(**attribute)</a>
+        
+          <div class="summary"><p>Returns documents with columns matching the given criteria </p>
+
+<p><span class="flag red">DEPRECATED</span>  Use <code><a href="../RethinkORM/Base.html#where(&predicate:RethinkDB::DatumTerm-%3ERethinkDB::DatumTerm)-class-method">.where</a></code> instead.</p>
+
+</div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#find_by(**attribute,&predicate:RethinkDB::DatumTerm-%3ERethinkDB::DatumTerm)-class-method" class="signature"><strong>.find_by</strong>(**attribute, &predicate : RethinkDB::DatumTerm -> RethinkDB::DatumTerm)</a>
+        
+          <div class="summary"><p>Returns documents with columns matching the given criteria </p>
+
+<p><span class="flag red">DEPRECATED</span>  Use <code><a href="../RethinkORM/Base.html#where(&predicate:RethinkDB::DatumTerm-%3ERethinkDB::DatumTerm)-class-method">.where</a></code> instead.</p>
+
+</div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#get_all(values:Array%7CTuple,**options)-class-method" class="signature"><strong>.get_all</strong>(values : Array | Tuple, **options)</a>
+        
+          <div class="summary"><p>Query by ids, optionally set a secondary index </p>
+
+<p><span class="flag red">DEPRECATED</span>  Use <code><a href="../RethinkORM/Base.html#find_all(ids:Array%7CTuple,**options)-class-method">.find_all</a></code> instead.</p>
+
+</div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#has_index?(field)-class-method" class="signature"><strong>.has_index?</strong>(field)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#raw_changes(**options,&:RethinkDB::Table-%3EHasChanges)-class-method" class="signature"><strong>.raw_changes</strong>(**options, & : RethinkDB::Table -> HasChanges)</a>
+        
+          <div class="summary"><p>Creates a Changefeed::Raw on query </p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#raw_changes(id:String?=nil,**options)-class-method" class="signature"><strong>.raw_changes</strong>(id : String? = <span class="n">nil</span>, **options)</a>
+        
+          <div class="summary"><p>Establishes a changefeed of models in a RethinkDB table Changefeed at document (id passed) or table level </p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#raw_query(**options,&)-class-method" class="signature"><strong>.raw_query</strong>(**options, &)</a>
+        
+          <div class="summary"><p><strong>Unsafe</strong> method until <code><a href="../RethinkORM/Base.html#where(&predicate:RethinkDB::DatumTerm-%3ERethinkDB::DatumTerm)-class-method">.where</a></code> can accept more generic arguments Makes 2 <strong>LARGE</strong> assumptions - User correctly scopes the query under the right table - User forms a query that returns a collection of models</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#table_query(**options,&)-class-method" class="signature"><strong>.table_query</strong>(**options, &)</a>
+        
+          <div class="summary"><p>Yield a RethinkDB handle namespaced under the document table </p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#where(&predicate:RethinkDB::DatumTerm-%3ERethinkDB::DatumTerm)-class-method" class="signature"><strong>.where</strong>(&predicate : RethinkDB::DatumTerm -> RethinkDB::DatumTerm)</a>
+        
+          <div class="summary"><p>Returns documents for which predicate block is true </p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#where(**attrs,&predicate:RethinkDB::DatumTerm-%3ERethinkDB::DatumTerm)-class-method" class="signature"><strong>.where</strong>(**attrs, &predicate : RethinkDB::DatumTerm -> RethinkDB::DatumTerm)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#where(attrs:Hash,**options)-class-method" class="signature"><strong>.where</strong>(attrs : Hash, **options)</a>
+        
+          <div class="summary"><p>Returns documents containing fields that match the attributes </p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#where(**attrs)-class-method" class="signature"><strong>.where</strong>(**attrs)</a>
+        
+          <div class="summary"><p>Returns documents containing fields that match the attributes </p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#==(other:self)-instance-method" class="signature"><strong>#==</strong>(other : <span class="k">self</span>)</a>
+        
+          <div class="summary"><p>Returns <code>true</code> if this reference is the same as <em>other</em>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#apply_defaults-instance-method" class="signature"><strong>#apply_defaults</strong></a>
+        
+          <div class="summary"><p>Generate code to apply default values</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#assign_attributes(id:String?%7CMissing=Missing)-instance-method" class="signature"><strong>#assign_attributes</strong>(id : String? | Missing = <span class="t">Missing</span>)</a>
+        
+          <div class="summary"><p>Assign to multiple attributes.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#assign_attributes(params:HTTP::Params%7CHash(String,String)%7CTuple(String,String))-instance-method" class="signature"><strong>#assign_attributes</strong>(params : HTTP::Params | Hash(String, String) | Tuple(String, String))</a>
+        
+          <div class="summary"><p>Assign to mulitple attributes via <code>HTTP::Params</code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#attributes-instance-method" class="signature"><strong>#attributes</strong></a>
+        
+          <div class="summary"><p>Returns a <code>Hash</code> of all attribute values</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#attributes_tuple-instance-method" class="signature"><strong>#attributes_tuple</strong></a>
+        
+          <div class="summary"><p>Returns a <code>NamedTuple</code> of all attribute values.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#id_default:String?-instance-method" class="signature"><strong>#id_default</strong> : String?</a>
+        
+          <div class="summary"><p><code>id</code>'s default value</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#persistent_attributes-instance-method" class="signature"><strong>#persistent_attributes</strong></a>
+        
+          <div class="summary"><p>Returns a <code>Hash</code> of all attributes that can be persisted.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#uuid_generator=(generator:Class)-instance-method" class="signature"><strong>#uuid_generator=</strong>(generator : Class)</a>
+        
+          <div class="summary"><p>Allow user defined uuid generator</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+  <h3>Instance methods inherited from module <code><a href="../RethinkORM/Persistence.html">RethinkORM::Persistence</a></code></h3>
+  
+  
+    <a href="../RethinkORM/Persistence.html#delete-instance-method" class="tooltip">
+      <span>delete</span>
+    delete</a>, 
+    
+  
+    <a href="../RethinkORM/Persistence.html#destroy-instance-method" class="tooltip">
+      <span>destroy</span>
+    destroy</a>, 
+    
+  
+    <a href="../RethinkORM/Persistence.html#destroyed-instance-method" class="tooltip">
+      <span>destroyed</span>
+    destroyed</a>, 
+    
+  
+    <a href="../RethinkORM/Persistence.html#destroyed=(destroyed)-instance-method" class="tooltip">
+      <span>destroyed=(destroyed)</span>
+    destroyed=</a>, 
+    
+  
+    <a href="../RethinkORM/Persistence.html#destroyed?-instance-method" class="tooltip">
+      <span>destroyed?</span>
+    destroyed?</a>, 
+    
+  
+    <a href="../RethinkORM/Persistence.html#new_record?-instance-method" class="tooltip">
+      <span>new_record?</span>
+    new_record?</a>, 
+    
+  
+    <a href="../RethinkORM/Persistence.html#persisted?-instance-method" class="tooltip">
+      <span>persisted?</span>
+    persisted?</a>, 
+    
+  
+    <a href="../RethinkORM/Persistence.html#reload!-instance-method" class="tooltip">
+      <span>reload!</span>
+    reload!</a>, 
+    
+  
+    <a href="../RethinkORM/Persistence.html#save(**options)-instance-method" class="tooltip">
+      <span>save(**options)</span>
+    save</a>, 
+    
+  
+    <a href="../RethinkORM/Persistence.html#save!(**options)-instance-method" class="tooltip">
+      <span>save!(**options)</span>
+    save!</a>, 
+    
+  
+    <a href="../RethinkORM/Persistence.html#update(**attributes)-instance-method" class="tooltip">
+      <span>update(**attributes)</span>
+    update</a>, 
+    
+  
+    <a href="../RethinkORM/Persistence.html#update!(**attributes)-instance-method" class="tooltip">
+      <span>update!(**attributes)</span>
+    update!</a>, 
+    
+  
+    <a href="../RethinkORM/Persistence.html#update_fields(**attributes)-instance-method" class="tooltip">
+      <span>update_fields(**attributes)</span>
+    update_fields</a>
+    
+  
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+  <h3>Instance methods inherited from module <code><a href="../RethinkORM/Associations.html">RethinkORM::Associations</a></code></h3>
+  
+  
+    <a href="../RethinkORM/Associations.html#reset_associations-instance-method" class="tooltip">
+      <span>reset_associations</span>
+    reset_associations</a>
+    
+  
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+
+
+  <h2>
+    <a id="class-method-detail" class="anchor" href="#class-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Class Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="all(**options)-class-method">
+      <div class="signature">
+        
+        def self.<strong>all</strong>(**options)
+
+        <a class="method-permalink" href="#all(**options)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Cursor of each model in the database</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="attributes:Array(Symbol)-class-method">
+      <div class="signature">
+        
+        def self.<strong>attributes</strong> : Array(Symbol)
+
+        <a class="method-permalink" href="#attributes:Array(Symbol)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns all attribute keys.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="changes(id:String?=nil,**options)-class-method">
+      <div class="signature">
+        
+        def self.<strong>changes</strong>(id : String? = <span class="n">nil</span>, **options)
+
+        <a class="method-permalink" href="#changes(id:String?=nil,**options)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Changefeed at document (if id passed) or table level</p>
+
+<p>Yields an infinite iterator  of model events</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="changes(**options,&:RethinkDB::Table->HasChanges)-class-method">
+      <div class="signature">
+        
+        def self.<strong>changes</strong>(**options, & : RethinkDB::Table -> <a href="../RethinkORM/Queries/HasChanges.html">HasChanges</a>)
+
+        <a class="method-permalink" href="#changes(**options,&:RethinkDB::Table-%3EHasChanges)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Creates a Changefeed on query</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="clear-class-method">
+      <div class="signature">
+        
+        def self.<strong>clear</strong>
+
+        <a class="method-permalink" href="#clear-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Removes all records from the table</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="collection_query(**options,&)-class-method">
+      <div class="signature">
+        
+        def self.<strong>collection_query</strong>(**options, &)
+
+        <a class="method-permalink" href="#collection_query(**options,&)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p><strong>Unsafe</strong> method until <code><a href="../RethinkORM/Base.html#where(&predicate:RethinkDB::DatumTerm-%3ERethinkDB::DatumTerm)-class-method">.where</a></code> can accept more generic arguments
+Makes 2 <strong>LARGE</strong> assumptions</p>
+
+<ul><li>User correctly scopes the query under the right table</li><li>User forms a query that returns a collection of models</li></ul>
+
+<p>Should raise/not compile on malformed query/incorrect return type to create a collection</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="count(**attrs,&predicate:RethinkDB::DatumTerm->RethinkDB::DatumTerm)-class-method">
+      <div class="signature">
+        
+        def self.<strong>count</strong>(**attrs, &predicate : RethinkDB::DatumTerm -> RethinkDB::DatumTerm)
+
+        <a class="method-permalink" href="#count(**attrs,&predicate:RethinkDB::DatumTerm-%3ERethinkDB::DatumTerm)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns a count of documents for which predicate block is true</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="count(**attrs)-class-method">
+      <div class="signature">
+        
+        def self.<strong>count</strong>(**attrs)
+
+        <a class="method-permalink" href="#count(**attrs)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns a count of all documents in the table</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="count-class-method">
+      <div class="signature">
+        
+        def self.<strong>count</strong>
+
+        <a class="method-permalink" href="#count-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns a count of all documents in the table</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="create(**attributes)-class-method">
+      <div class="signature">
+        
+        def self.<strong>create</strong>(**attributes)
+
+        <a class="method-permalink" href="#create(**attributes)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Creates the model.</p>
+
+<p>Persistence can be confirmed via <code>#persisted?</code></p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="create!(**attributes)-class-method">
+      <div class="signature">
+        
+        def self.<strong>create!</strong>(**attributes)
+
+        <a class="method-permalink" href="#create!(**attributes)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Creates the model.</p>
+
+<p>See <code>#save!</code></p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="exists?(id:String,**options)-class-method">
+      <div class="signature">
+        
+        def self.<strong>exists?</strong>(id : String, **options)
+
+        <a class="method-permalink" href="#exists?(id:String,**options)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Check for document presence in the table</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="find(id:String,**options)-class-method">
+      <div class="signature">
+        
+        def self.<strong>find</strong>(id : String, **options)
+
+        <a class="method-permalink" href="#find(id:String,**options)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Find single document by id</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="find!(id:String,**options)-class-method">
+      <div class="signature">
+        
+        def self.<strong>find!</strong>(id : String, **options)
+
+        <a class="method-permalink" href="#find!(id:String,**options)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Lookup document by id</p>
+
+<p>Throws if document is not present</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="find_all(ids:Array|Tuple,**options)-class-method">
+      <div class="signature">
+        
+        def self.<strong>find_all</strong>(ids : Array | Tuple, **options)
+
+        <a class="method-permalink" href="#find_all(ids:Array%7CTuple,**options)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Query by ids, optionally set a secondary index</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="find_by(**attribute)-class-method">
+      <div class="signature">
+        
+        def self.<strong>find_by</strong>(**attribute)
+
+        <a class="method-permalink" href="#find_by(**attribute)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns documents with columns matching the given criteria</p>
+
+<p><span class="flag red">DEPRECATED</span>  Use <code><a href="../RethinkORM/Base.html#where(&predicate:RethinkDB::DatumTerm-%3ERethinkDB::DatumTerm)-class-method">.where</a></code> instead.</p>
+
+
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="find_by(**attribute,&predicate:RethinkDB::DatumTerm->RethinkDB::DatumTerm)-class-method">
+      <div class="signature">
+        
+        def self.<strong>find_by</strong>(**attribute, &predicate : RethinkDB::DatumTerm -> RethinkDB::DatumTerm)
+
+        <a class="method-permalink" href="#find_by(**attribute,&predicate:RethinkDB::DatumTerm-%3ERethinkDB::DatumTerm)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns documents with columns matching the given criteria</p>
+
+<p><span class="flag red">DEPRECATED</span>  Use <code><a href="../RethinkORM/Base.html#where(&predicate:RethinkDB::DatumTerm-%3ERethinkDB::DatumTerm)-class-method">.where</a></code> instead.</p>
+
+
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="get_all(values:Array|Tuple,**options)-class-method">
+      <div class="signature">
+        
+        def self.<strong>get_all</strong>(values : Array | Tuple, **options)
+
+        <a class="method-permalink" href="#get_all(values:Array%7CTuple,**options)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Query by ids, optionally set a secondary index</p>
+
+<p><span class="flag red">DEPRECATED</span>  Use <code><a href="../RethinkORM/Base.html#find_all(ids:Array%7CTuple,**options)-class-method">.find_all</a></code> instead.</p>
+
+
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="has_index?(field)-class-method">
+      <div class="signature">
+        
+        def self.<strong>has_index?</strong>(field)
+
+        <a class="method-permalink" href="#has_index?(field)-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="raw_changes(**options,&:RethinkDB::Table->HasChanges)-class-method">
+      <div class="signature">
+        
+        def self.<strong>raw_changes</strong>(**options, & : RethinkDB::Table -> <a href="../RethinkORM/Queries/HasChanges.html">HasChanges</a>)
+
+        <a class="method-permalink" href="#raw_changes(**options,&:RethinkDB::Table-%3EHasChanges)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Creates a Changefeed::Raw on query</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="raw_changes(id:String?=nil,**options)-class-method">
+      <div class="signature">
+        
+        def self.<strong>raw_changes</strong>(id : String? = <span class="n">nil</span>, **options)
+
+        <a class="method-permalink" href="#raw_changes(id:String?=nil,**options)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Establishes a changefeed of models in a RethinkDB table
+Changefeed at document (id passed) or table level</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="raw_query(**options,&)-class-method">
+      <div class="signature">
+        
+        def self.<strong>raw_query</strong>(**options, &)
+
+        <a class="method-permalink" href="#raw_query(**options,&)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p><strong>Unsafe</strong> method until <code><a href="../RethinkORM/Base.html#where(&predicate:RethinkDB::DatumTerm-%3ERethinkDB::DatumTerm)-class-method">.where</a></code> can accept more generic arguments
+Makes 2 <strong>LARGE</strong> assumptions</p>
+
+<ul><li>User correctly scopes the query under the right table</li><li>User forms a query that returns a collection of models</li></ul>
+
+<p>Should raise/not compile on malformed query/incorrect return type to create a collection</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="table_query(**options,&)-class-method">
+      <div class="signature">
+        
+        def self.<strong>table_query</strong>(**options, &)
+
+        <a class="method-permalink" href="#table_query(**options,&)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Yield a RethinkDB handle namespaced under the document table</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="where(&predicate:RethinkDB::DatumTerm->RethinkDB::DatumTerm)-class-method">
+      <div class="signature">
+        
+        def self.<strong>where</strong>(&predicate : RethinkDB::DatumTerm -> RethinkDB::DatumTerm)
+
+        <a class="method-permalink" href="#where(&predicate:RethinkDB::DatumTerm-%3ERethinkDB::DatumTerm)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns documents for which predicate block is true</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="where(**attrs,&predicate:RethinkDB::DatumTerm->RethinkDB::DatumTerm)-class-method">
+      <div class="signature">
+        
+        def self.<strong>where</strong>(**attrs, &predicate : RethinkDB::DatumTerm -> RethinkDB::DatumTerm)
+
+        <a class="method-permalink" href="#where(**attrs,&predicate:RethinkDB::DatumTerm-%3ERethinkDB::DatumTerm)-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="where(attrs:Hash,**options)-class-method">
+      <div class="signature">
+        
+        def self.<strong>where</strong>(attrs : Hash, **options)
+
+        <a class="method-permalink" href="#where(attrs:Hash,**options)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns documents containing fields that match the attributes</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="where(**attrs)-class-method">
+      <div class="signature">
+        
+        def self.<strong>where</strong>(**attrs)
+
+        <a class="method-permalink" href="#where(**attrs)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns documents containing fields that match the attributes</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="==(other:self)-instance-method">
+      <div class="signature">
+        
+        def <strong>==</strong>(other : <span class="k">self</span>)
+
+        <a class="method-permalink" href="#==(other:self)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+            <div class="doc-inherited">
+              Description copied from class Reference
+            </div>
+          
+          <p>Returns <code>true</code> if this reference is the same as <em>other</em>. Invokes <code>same?</code>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="apply_defaults-instance-method">
+      <div class="signature">
+        
+        def <strong>apply_defaults</strong>
+
+        <a class="method-permalink" href="#apply_defaults-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Generate code to apply default values</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="assign_attributes(id:String?|Missing=Missing)-instance-method">
+      <div class="signature">
+        
+        def <strong>assign_attributes</strong>(id : String? | Missing = <span class="t">Missing</span>)
+
+        <a class="method-permalink" href="#assign_attributes(id:String?%7CMissing=Missing)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Assign to multiple attributes.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="assign_attributes(params:HTTP::Params|Hash(String,String)|Tuple(String,String))-instance-method">
+      <div class="signature">
+        
+        def <strong>assign_attributes</strong>(params : HTTP::Params | Hash(String, String) | Tuple(String, String))
+
+        <a class="method-permalink" href="#assign_attributes(params:HTTP::Params%7CHash(String,String)%7CTuple(String,String))-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Assign to mulitple attributes via <code>HTTP::Params</code>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="attributes-instance-method">
+      <div class="signature">
+        
+        def <strong>attributes</strong>
+
+        <a class="method-permalink" href="#attributes-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns a <code>Hash</code> of all attribute values</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="attributes_tuple-instance-method">
+      <div class="signature">
+        
+        def <strong>attributes_tuple</strong>
+
+        <a class="method-permalink" href="#attributes_tuple-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns a <code>NamedTuple</code> of all attribute values.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="id_default:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>id_default</strong> : String?
+
+        <a class="method-permalink" href="#id_default:String?-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p><code>id</code>'s default value</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="persistent_attributes-instance-method">
+      <div class="signature">
+        
+        def <strong>persistent_attributes</strong>
+
+        <a class="method-permalink" href="#persistent_attributes-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns a <code>Hash</code> of all attributes that can be persisted.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="uuid_generator=(generator:Class)-instance-method">
+      <div class="signature">
+        
+        def <strong>uuid_generator=</strong>(generator : Class)
+
+        <a class="method-permalink" href="#uuid_generator=(generator:Class)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Allow user defined uuid generator</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>

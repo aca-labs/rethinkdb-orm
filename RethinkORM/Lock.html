@@ -1,0 +1,2861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 0.36.1">
+<meta name="crystal_docs.project_version" content="4.1.1">
+<meta name="crystal_docs.project_name" content="rethinkdb-orm">
+
+
+
+<link href="../css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/doc.js"></script>
+
+  <meta name="repository-name" content="rethinkdb-orm">
+  <title>RethinkORM::Lock - rethinkdb-orm 4.1.1</title>
+  <script type="text/javascript">
+    CrystalDocs.base_path = "../";
+  </script>
+</head>
+<body>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="../index.html">
+          rethinkdb-orm
+        </a>
+      </h1>
+
+      <span class="project-version">
+        4.1.1
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class="parent " data-id="rethinkdb-orm/RethinkDB" data-name="rethinkdb">
+      <a href="../RethinkDB.html">RethinkDB</a>
+      
+        <ul>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkDB/Connection" data-name="rethinkdb::connection">
+      <a href="../RethinkDB/Connection.html">Connection</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent open current" data-id="rethinkdb-orm/RethinkORM" data-name="rethinkorm">
+      <a href="../RethinkORM.html">RethinkORM</a>
+      
+        <ul>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/AssociationCollection" data-name="rethinkorm::associationcollection(owner, target)">
+      <a href="../RethinkORM/AssociationCollection.html">AssociationCollection</a>
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Associations" data-name="rethinkorm::associations">
+      <a href="../RethinkORM/Associations.html">Associations</a>
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Base" data-name="rethinkorm::base">
+      <a href="../RethinkORM/Base.html">Base</a>
+      
+    </li>
+  
+  <li class="parent " data-id="rethinkdb-orm/RethinkORM/Changefeed" data-name="rethinkorm::changefeed(t)">
+      <a href="../RethinkORM/Changefeed.html">Changefeed</a>
+      
+        <ul>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Changefeed/Event" data-name="rethinkorm::changefeed::event">
+      <a href="../RethinkORM/Changefeed/Event.html">Event</a>
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Changefeed/Raw" data-name="rethinkorm::changefeed::raw">
+      <a href="../RethinkORM/Changefeed/Raw.html">Raw</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Collection" data-name="rethinkorm::collection(t)">
+      <a href="../RethinkORM/Collection.html">Collection</a>
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Connection" data-name="rethinkorm::connection">
+      <a href="../RethinkORM/Connection.html">Connection</a>
+      
+    </li>
+  
+  <li class="parent " data-id="rethinkdb-orm/RethinkORM/Error" data-name="rethinkorm::error">
+      <a href="../RethinkORM/Error.html">Error</a>
+      
+        <ul>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Error/ChangefeedClosed" data-name="rethinkorm::error::changefeedclosed">
+      <a href="../RethinkORM/Error/ChangefeedClosed.html">ChangefeedClosed</a>
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Error/ConnectError" data-name="rethinkorm::error::connecterror">
+      <a href="../RethinkORM/Error/ConnectError.html">ConnectError</a>
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Error/DatabaseError" data-name="rethinkorm::error::databaseerror">
+      <a href="../RethinkORM/Error/DatabaseError.html">DatabaseError</a>
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Error/DocumentExists" data-name="rethinkorm::error::documentexists">
+      <a href="../RethinkORM/Error/DocumentExists.html">DocumentExists</a>
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Error/DocumentInvalid" data-name="rethinkorm::error::documentinvalid">
+      <a href="../RethinkORM/Error/DocumentInvalid.html">DocumentInvalid</a>
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Error/DocumentNotFound" data-name="rethinkorm::error::documentnotfound">
+      <a href="../RethinkORM/Error/DocumentNotFound.html">DocumentNotFound</a>
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Error/DocumentNotSaved" data-name="rethinkorm::error::documentnotsaved">
+      <a href="../RethinkORM/Error/DocumentNotSaved.html">DocumentNotSaved</a>
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Error/LockInvalidOp" data-name="rethinkorm::error::lockinvalidop">
+      <a href="../RethinkORM/Error/LockInvalidOp.html">LockInvalidOp</a>
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Error/LockLost" data-name="rethinkorm::error::locklost">
+      <a href="../RethinkORM/Error/LockLost.html">LockLost</a>
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Error/LockUnavailable" data-name="rethinkorm::error::lockunavailable">
+      <a href="../RethinkORM/Error/LockUnavailable.html">LockUnavailable</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/IdGenerator" data-name="rethinkorm::idgenerator">
+      <a href="../RethinkORM/IdGenerator.html">IdGenerator</a>
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Index" data-name="rethinkorm::index">
+      <a href="../RethinkORM/Index.html">Index</a>
+      
+    </li>
+  
+  <li class="parent open current" data-id="rethinkdb-orm/RethinkORM/Lock" data-name="rethinkorm::lock">
+      <a href="../RethinkORM/Lock.html">Lock</a>
+      
+        <ul>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Lock/Reentrant" data-name="rethinkorm::lock::reentrant">
+      <a href="../RethinkORM/Lock/Reentrant.html">Reentrant</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Persistence" data-name="rethinkorm::persistence">
+      <a href="../RethinkORM/Persistence.html">Persistence</a>
+      
+    </li>
+  
+  <li class="parent " data-id="rethinkdb-orm/RethinkORM/Queries" data-name="rethinkorm::queries">
+      <a href="../RethinkORM/Queries.html">Queries</a>
+      
+        <ul>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Queries/HasChanges" data-name="rethinkorm::queries::haschanges">
+      <a href="../RethinkORM/Queries/HasChanges.html">HasChanges</a>
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Queries/R" data-name="rethinkorm::queries::r">
+      <a href="../RethinkORM/Queries/R.html">R</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="rethinkdb-orm/RethinkORM/Settings" data-name="rethinkorm::settings">
+      <a href="../RethinkORM/Settings.html">Settings</a>
+      
+        <ul>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Settings/HabitatSettings" data-name="rethinkorm::settings::habitatsettings">
+      <a href="../RethinkORM/Settings/HabitatSettings.html">HabitatSettings</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Table" data-name="rethinkorm::table">
+      <a href="../RethinkORM/Table.html">Table</a>
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Timestamps" data-name="rethinkorm::timestamps">
+      <a href="../RethinkORM/Timestamps.html">Timestamps</a>
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Validators" data-name="rethinkorm::validators">
+      <a href="../RethinkORM/Validators.html">Validators</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">class</span> RethinkORM::Lock
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../RethinkORM/Lock.html">RethinkORM::Lock</a></li><li class="superclass"><a href="../RethinkORM/Base.html">RethinkORM::Base</a></li><li class="superclass">ActiveModel::Model</li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+
+
+
+
+  <h2>
+    <a id="overview" class="anchor" href="#overview">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Overview
+  </h2>
+
+  <p>DB locks for RethinkDB</p>
+
+<p><span class="flag orange">TODO</span>  Conform to the <a href="http://nobrainer.io/">NoBrainer</a> locking interface.</p>
+
+
+
+
+
+
+
+  <h2>
+    <a id="extended-modules" class="anchor" href="#extended-modules">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Extended Modules
+  </h2>
+  <ul class="other-types-list">
+    
+      <li class="other-type"><a href="../RethinkORM/Settings.html">RethinkORM::Settings</a></li>
+    
+  </ul>
+
+
+
+  <h2>
+    <a id="direct-known-subclasses" class="anchor" href="#direct-known-subclasses">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Direct Known Subclasses
+  </h2>
+  <ul class="other-types-list">
+    
+      <li class="other-type"><a href="../RethinkORM/Lock/Reentrant.html">RethinkORM::Lock::Reentrant</a></li>
+    
+  </ul>
+
+
+
+
+
+
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
+  
+    
+      rethinkdb-orm/lock.cr
+    
+    <br/>
+  
+
+
+
+  
+    <h2>
+      <a id="constant-summary" class="anchor" href="#constant-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+      Constant Summary
+    </h2>
+  
+  <dl>
+    
+      <dt class="entry-const" id="CALLBACKS">
+        <strong>CALLBACKS</strong> = <code>{before_save: <span class="o">[]</span> <span class="k">of</span> <span class="t">Nil</span>, after_save: <span class="o">[]</span> <span class="k">of</span> <span class="t">Nil</span>, before_create: <span class="o">[]</span> <span class="k">of</span> <span class="t">Nil</span>, after_create: <span class="o">[]</span> <span class="k">of</span> <span class="t">Nil</span>, before_update: <span class="o">[]</span> <span class="k">of</span> <span class="t">Nil</span>, after_update: <span class="o">[]</span> <span class="k">of</span> <span class="t">Nil</span>, before_destroy: <span class="o">[]</span> <span class="k">of</span> <span class="t">Nil</span>, after_destroy: <span class="o">[]</span> <span class="k">of</span> <span class="t">Nil</span>}</code>
+      </dt>
+      
+      <dd class="entry-const-doc">
+        <p>DB locks for RethinkDB</p>
+
+<p><span class="flag orange">TODO</span>  Conform to the <a href="http://nobrainer.io/">NoBrainer</a> locking interface.</p>
+      </dd>
+      
+    
+  </dl>
+
+
+
+  <h2>
+    <a id="constructors" class="anchor" href="#constructors">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructors
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#from_trusted_json(string_or_io:String%7CIO):self-class-method" class="signature"><strong>.from_trusted_json</strong>(string_or_io : String | IO) : <span class="k">self</span></a>
+        
+          <div class="summary"><p>Serialize from a trusted JSON source</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#from_trusted_yaml(string_or_io:String%7CIO):self-class-method" class="signature"><strong>.from_trusted_yaml</strong>(string_or_io : String | IO) : <span class="k">self</span></a>
+        
+          <div class="summary"><p>Serialize from a trusted YAML source</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#new(key:String,expire:Time::Span?=nil,timeout:Time::Span?=nil,instance_token:String=Lock.new_instance_token)-class-method" class="signature"><strong>.new</strong>(key : String, expire : Time::Span? = <span class="n">nil</span>, timeout : Time::Span? = <span class="n">nil</span>, instance_token : String = <span class="t">Lock</span>.new_instance_token)</a>
+        
+          <div class="summary"><p>Reset instance token if it's loaded and expired?</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#new(ctx:YAML::ParseContext,node:YAML::Nodes::Node)-class-method" class="signature"><strong>.new</strong>(ctx : YAML::ParseContext, node : YAML::Nodes::Node)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#new(id:String??=nil,key:String?=nil,instance_token:String?=nil,expires_at:Time?=nil)-class-method" class="signature"><strong>.new</strong>(id : String?? = <span class="n">nil</span>, key : String? = <span class="n">nil</span>, instance_token : String? = <span class="n">nil</span>, expires_at : Time? = <span class="n">nil</span>)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#new(params:HTTP::Params%7CHash(String,String)%7CTuple(String,String))-class-method" class="signature"><strong>.new</strong>(params : HTTP::Params | Hash(String, String) | Tuple(String, String))</a>
+        
+          <div class="summary"><p>Initialize RethinkORM::Lock from <code>HTTP::Params</code>.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+  <h2>
+    <a id="class-method-summary" class="anchor" href="#class-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Class Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#attributes:Array(Symbol)-class-method" class="signature"><strong>.attributes</strong> : Array(Symbol)</a>
+        
+          <div class="summary"><p>Returns all attribute keys.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#expired-class-method" class="signature"><strong>.expired</strong></a>
+        
+          <div class="summary"><p>Returns all expired locks </p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#find(key)-class-method" class="signature"><strong>.find</strong>(key)</a>
+        
+          <div class="summary"><p>Hash a key </p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#table_name-class-method" class="signature"><strong>.table_name</strong></a>
+        
+      </li>
+    
+  </ul>
+
+
+
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#after_create-instance-method" class="signature"><strong>#after_create</strong></a>
+        
+          <div class="summary"><p>DB locks for RethinkDB TODO: Conform to the <a href="http://nobrainer.io/">NoBrainer</a> locking interface.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#after_destroy-instance-method" class="signature"><strong>#after_destroy</strong></a>
+        
+          <div class="summary"><p>DB locks for RethinkDB TODO: Conform to the <a href="http://nobrainer.io/">NoBrainer</a> locking interface.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#after_save-instance-method" class="signature"><strong>#after_save</strong></a>
+        
+          <div class="summary"><p>DB locks for RethinkDB TODO: Conform to the <a href="http://nobrainer.io/">NoBrainer</a> locking interface.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#after_update-instance-method" class="signature"><strong>#after_update</strong></a>
+        
+          <div class="summary"><p>DB locks for RethinkDB TODO: Conform to the <a href="http://nobrainer.io/">NoBrainer</a> locking interface.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#apply_defaults-instance-method" class="signature"><strong>#apply_defaults</strong></a>
+        
+          <div class="summary"><p>Generate code to apply default values</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#assign_attributes(id:String?%7CMissing=Missing,key:String%7CMissing=Missing,instance_token:String%7CMissing=Missing,expires_at:Time%7CMissing=Missing)-instance-method" class="signature"><strong>#assign_attributes</strong>(id : String? | Missing = <span class="t">Missing</span>, key : String | Missing = <span class="t">Missing</span>, instance_token : String | Missing = <span class="t">Missing</span>, expires_at : Time | Missing = <span class="t">Missing</span>)</a>
+        
+          <div class="summary"><p>Assign to multiple attributes.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#assign_attributes(params:HTTP::Params%7CHash(String,String)%7CTuple(String,String))-instance-method" class="signature"><strong>#assign_attributes</strong>(params : HTTP::Params | Hash(String, String) | Tuple(String, String))</a>
+        
+          <div class="summary"><p>Assign to mulitple attributes via <code>HTTP::Params</code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#assign_attributes_from_json(json)-instance-method" class="signature"><strong>#assign_attributes_from_json</strong>(json)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#assign_attributes_from_trusted_json(json)-instance-method" class="signature"><strong>#assign_attributes_from_trusted_json</strong>(json)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#assign_attributes_from_trusted_yaml(yaml)-instance-method" class="signature"><strong>#assign_attributes_from_trusted_yaml</strong>(yaml)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#assign_attributes_from_yaml(yaml)-instance-method" class="signature"><strong>#assign_attributes_from_yaml</strong>(yaml)</a>
+        
+          <div class="summary"><p>Uses the YAML parser as JSON is valid YAML</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#attributes-instance-method" class="signature"><strong>#attributes</strong></a>
+        
+          <div class="summary"><p>Returns a <code>Hash</code> of all attribute values</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#attributes_tuple-instance-method" class="signature"><strong>#attributes_tuple</strong></a>
+        
+          <div class="summary"><p>Returns a <code>NamedTuple</code> of all attribute values.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#before_create-instance-method" class="signature"><strong>#before_create</strong></a>
+        
+          <div class="summary"><p>DB locks for RethinkDB TODO: Conform to the <a href="http://nobrainer.io/">NoBrainer</a> locking interface.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#before_destroy-instance-method" class="signature"><strong>#before_destroy</strong></a>
+        
+          <div class="summary"><p>DB locks for RethinkDB TODO: Conform to the <a href="http://nobrainer.io/">NoBrainer</a> locking interface.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#before_save-instance-method" class="signature"><strong>#before_save</strong></a>
+        
+          <div class="summary"><p>DB locks for RethinkDB TODO: Conform to the <a href="http://nobrainer.io/">NoBrainer</a> locking interface.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#before_update-instance-method" class="signature"><strong>#before_update</strong></a>
+        
+          <div class="summary"><p>DB locks for RethinkDB TODO: Conform to the <a href="http://nobrainer.io/">NoBrainer</a> locking interface.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#changed?-instance-method" class="signature"><strong>#changed?</strong></a>
+        
+          <div class="summary"><p>Check if any attributes have changed.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#changed_attributes-instance-method" class="signature"><strong>#changed_attributes</strong></a>
+        
+          <div class="summary"><p>Returns a <code>Hash</code> with all changed attributes.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#changed_json:String-instance-method" class="signature"><strong>#changed_json</strong> : String</a>
+        
+          <div class="summary"><p>Serialize the set of changed attributes to JSON.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#changed_json(io:IO):Nil-instance-method" class="signature"><strong>#changed_json</strong>(io : IO) : Nil</a>
+        
+          <div class="summary"><p>Serialize the set of changed attributes to JSON.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#changed_yaml:String-instance-method" class="signature"><strong>#changed_yaml</strong> : String</a>
+        
+          <div class="summary"><p>Serialize the set of changed attributes to YAML.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#changed_yaml(io:IO):Nil-instance-method" class="signature"><strong>#changed_yaml</strong>(io : IO) : Nil</a>
+        
+          <div class="summary"><p>Serialize the set of changed attributes to YAML.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#clear_changes_information-instance-method" class="signature"><strong>#clear_changes_information</strong></a>
+        
+          <div class="summary"><p>Reset changes for all attributes.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#expire:Time::Span-instance-method" class="signature"><strong>#expire</strong> : Time::Span</a>
+        
+          <div class="summary"><p>Seconds before the lock expires</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#expire=(expire:Time::Span)-instance-method" class="signature"><strong>#expire=</strong>(expire : Time::Span)</a>
+        
+          <div class="summary"><p>Seconds before the lock expires</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#expires_at:Time-instance-method" class="signature"><strong>#expires_at</strong> : Time</a>
+        
+          <div class="summary"><p><code><a href="../RethinkORM/Lock.html#expires_at:Time-instance-method">#expires_at</a></code> getter</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#expires_at=(value:Time)-instance-method" class="signature"><strong>#expires_at=</strong>(value : Time)</a>
+        
+          <div class="summary"><p><code><a href="../RethinkORM/Lock.html#expires_at:Time-instance-method">#expires_at</a></code> setter</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#expires_at_change-instance-method" class="signature"><strong>#expires_at_change</strong></a>
+        
+          <div class="summary"><p>Returns <code>{ expires_at_was, expires_at }</code> if <code><a href="../RethinkORM/Lock.html#expires_at:Time-instance-method">#expires_at</a></code> has changed.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#expires_at_changed?-instance-method" class="signature"><strong>#expires_at_changed?</strong></a>
+        
+          <div class="summary"><p>Check if <code><a href="../RethinkORM/Lock.html#expires_at:Time-instance-method">#expires_at</a></code> is in the set of changed attributes.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#expires_at_default:Time-instance-method" class="signature"><strong>#expires_at_default</strong> : Time</a>
+        
+          <div class="summary"><p><code><a href="../RethinkORM/Lock.html#expires_at:Time-instance-method">#expires_at</a></code>'s default value</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#expires_at_was:Time?-instance-method" class="signature"><strong>#expires_at_was</strong> : Time?</a>
+        
+          <div class="summary"><p>Returns the previous value of <code><a href="../RethinkORM/Lock.html#expires_at:Time-instance-method">#expires_at</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#expires_at_will_change!-instance-method" class="signature"><strong>#expires_at_will_change!</strong></a>
+        
+          <div class="summary"><p>Include <code><a href="../RethinkORM/Lock.html#expires_at:Time-instance-method">#expires_at</a></code> in the set of changed attributes, whether it has changed or not.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#id:String?-instance-method" class="signature"><strong>#id</strong> : String?</a>
+        
+          <div class="summary"><p><code><a href="../RethinkORM/Lock.html#id:String?-instance-method">#id</a></code> getter</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#id=(value:String?)-instance-method" class="signature"><strong>#id=</strong>(value : String?)</a>
+        
+          <div class="summary"><p>Override the map json <code><a href="../RethinkORM/Lock.html#id:String?-instance-method">#id</a></code> setter</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#id_change-instance-method" class="signature"><strong>#id_change</strong></a>
+        
+          <div class="summary"><p>Returns <code>{ id_was, id }</code> if <code><a href="../RethinkORM/Lock.html#id:String?-instance-method">#id</a></code> has changed.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#id_changed?-instance-method" class="signature"><strong>#id_changed?</strong></a>
+        
+          <div class="summary"><p>Check if <code><a href="../RethinkORM/Lock.html#id:String?-instance-method">#id</a></code> is in the set of changed attributes.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#id_default:String?-instance-method" class="signature"><strong>#id_default</strong> : String?</a>
+        
+          <div class="summary"><p><code><a href="../RethinkORM/Lock.html#id:String?-instance-method">#id</a></code>'s default value</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#id_was:String?-instance-method" class="signature"><strong>#id_was</strong> : String?</a>
+        
+          <div class="summary"><p>Returns the previous value of <code><a href="../RethinkORM/Lock.html#id:String?-instance-method">#id</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#id_will_change!-instance-method" class="signature"><strong>#id_will_change!</strong></a>
+        
+          <div class="summary"><p>Include <code><a href="../RethinkORM/Lock.html#id:String?-instance-method">#id</a></code> in the set of changed attributes, whether it has changed or not.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#instance_token:String-instance-method" class="signature"><strong>#instance_token</strong> : String</a>
+        
+          <div class="summary"><p><code><a href="../RethinkORM/Lock.html#instance_token:String-instance-method">#instance_token</a></code> getter</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#instance_token=(value:String)-instance-method" class="signature"><strong>#instance_token=</strong>(value : String)</a>
+        
+          <div class="summary"><p><code><a href="../RethinkORM/Lock.html#instance_token:String-instance-method">#instance_token</a></code> setter</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#instance_token_change-instance-method" class="signature"><strong>#instance_token_change</strong></a>
+        
+          <div class="summary"><p>Returns <code>{ instance_token_was, instance_token }</code> if <code><a href="../RethinkORM/Lock.html#instance_token:String-instance-method">#instance_token</a></code> has changed.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#instance_token_changed?-instance-method" class="signature"><strong>#instance_token_changed?</strong></a>
+        
+          <div class="summary"><p>Check if <code><a href="../RethinkORM/Lock.html#instance_token:String-instance-method">#instance_token</a></code> is in the set of changed attributes.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#instance_token_default:String-instance-method" class="signature"><strong>#instance_token_default</strong> : String</a>
+        
+          <div class="summary"><p><code><a href="../RethinkORM/Lock.html#instance_token:String-instance-method">#instance_token</a></code>'s default value</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#instance_token_was:String?-instance-method" class="signature"><strong>#instance_token_was</strong> : String?</a>
+        
+          <div class="summary"><p>Returns the previous value of <code><a href="../RethinkORM/Lock.html#instance_token:String-instance-method">#instance_token</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#instance_token_will_change!-instance-method" class="signature"><strong>#instance_token_will_change!</strong></a>
+        
+          <div class="summary"><p>Include <code><a href="../RethinkORM/Lock.html#instance_token:String-instance-method">#instance_token</a></code> in the set of changed attributes, whether it has changed or not.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#key:String-instance-method" class="signature"><strong>#key</strong> : String</a>
+        
+          <div class="summary"><p><code><a href="../RethinkORM/Lock.html#key:String-instance-method">#key</a></code> getter</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#key=(value:String)-instance-method" class="signature"><strong>#key=</strong>(value : String)</a>
+        
+          <div class="summary"><p><code><a href="../RethinkORM/Lock.html#key:String-instance-method">#key</a></code> setter</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#key_change-instance-method" class="signature"><strong>#key_change</strong></a>
+        
+          <div class="summary"><p>Returns <code>{ key_was, key }</code> if <code><a href="../RethinkORM/Lock.html#key:String-instance-method">#key</a></code> has changed.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#key_changed?-instance-method" class="signature"><strong>#key_changed?</strong></a>
+        
+          <div class="summary"><p>Check if <code><a href="../RethinkORM/Lock.html#key:String-instance-method">#key</a></code> is in the set of changed attributes.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#key_default:String-instance-method" class="signature"><strong>#key_default</strong> : String</a>
+        
+          <div class="summary"><p><code><a href="../RethinkORM/Lock.html#key:String-instance-method">#key</a></code>'s default value</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#key_was:String?-instance-method" class="signature"><strong>#key_was</strong> : String?</a>
+        
+          <div class="summary"><p>Returns the previous value of <code><a href="../RethinkORM/Lock.html#key:String-instance-method">#key</a></code>.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#key_will_change!-instance-method" class="signature"><strong>#key_will_change!</strong></a>
+        
+          <div class="summary"><p>Include <code><a href="../RethinkORM/Lock.html#key:String-instance-method">#key</a></code> in the set of changed attributes, whether it has changed or not.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#lock(expire:Time::Span=self.expire,timeout:Time::Span=self.timeout)-instance-method" class="signature"><strong>#lock</strong>(expire : Time::Span = <span class="k">self</span>.expire, timeout : Time::Span = <span class="k">self</span>.timeout)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#locked?:Bool-instance-method" class="signature"><strong>#locked?</strong> : Bool</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#persistent_attributes-instance-method" class="signature"><strong>#persistent_attributes</strong></a>
+        
+          <div class="summary"><p>Returns a <code>Hash</code> of all attributes that can be persisted.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#refresh(expire:Time::Span?=nil)-instance-method" class="signature"><strong>#refresh</strong>(expire : Time::Span? = <span class="n">nil</span>)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#restore_attributes-instance-method" class="signature"><strong>#restore_attributes</strong></a>
+        
+          <div class="summary"><p>Reset each attribute to their previous values and clears all changes.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#run_create_callbacks(&)-instance-method" class="signature"><strong>#run_create_callbacks</strong>(&)</a>
+        
+          <div class="summary"><p>Wrap a block with callbacks for the appropriate crud operation</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#run_destroy_callbacks(&)-instance-method" class="signature"><strong>#run_destroy_callbacks</strong>(&)</a>
+        
+          <div class="summary"><p>DB locks for RethinkDB TODO: Conform to the <a href="http://nobrainer.io/">NoBrainer</a> locking interface.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#run_save_callbacks(&)-instance-method" class="signature"><strong>#run_save_callbacks</strong>(&)</a>
+        
+          <div class="summary"><p>DB locks for RethinkDB TODO: Conform to the <a href="http://nobrainer.io/">NoBrainer</a> locking interface.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#run_update_callbacks(&)-instance-method" class="signature"><strong>#run_update_callbacks</strong>(&)</a>
+        
+          <div class="summary"><p>DB locks for RethinkDB TODO: Conform to the <a href="http://nobrainer.io/">NoBrainer</a> locking interface.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#synchronize(**options,&)-instance-method" class="signature"><strong>#synchronize</strong>(**options, &)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#table_name-instance-method" class="signature"><strong>#table_name</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#timeout:Time::Span-instance-method" class="signature"><strong>#timeout</strong> : Time::Span</a>
+        
+          <div class="summary"><p>Lock acquisition timeout</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#timeout=(timeout:Time::Span)-instance-method" class="signature"><strong>#timeout=</strong>(timeout : Time::Span)</a>
+        
+          <div class="summary"><p>Lock acquisition timeout</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#to_json(json:JSON::Builder)-instance-method" class="signature"><strong>#to_json</strong>(json : JSON::Builder)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#to_yaml(__temp_76:YAML::Nodes::Builder)-instance-method" class="signature"><strong>#to_yaml</strong>(__temp_76 : YAML::Nodes::Builder)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#try_lock(expire:Time::Span=self.expire)-instance-method" class="signature"><strong>#try_lock</strong>(expire : Time::Span = <span class="k">self</span>.expire)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#unlock-instance-method" class="signature"><strong>#unlock</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#validate_nilability-instance-method" class="signature"><strong>#validate_nilability</strong></a>
+        
+          <div class="summary"><p>Validate that all non-nillable fields have values.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+    
+
+  <h3>Instance methods inherited from class <code><a href="../RethinkORM/Base.html">RethinkORM::Base</a></code></h3>
+  
+  
+    <a href="../RethinkORM/Base.html#==(other:self)-instance-method" class="tooltip">
+      <span>==(other : <span class="k">self</span>)</span>
+    ==</a>, 
+    
+  
+    <a href="../RethinkORM/Base.html#apply_defaults-instance-method" class="tooltip">
+      <span>apply_defaults</span>
+    apply_defaults</a>, 
+    
+  
+    <a href="../RethinkORM/Base.html#assign_attributes(id:String?%7CMissing=Missing)-instance-method" class="tooltip">
+      <span>assign_attributes(id : String? | Missing = <span class="t">Missing</span>)<br/>assign_attributes(params : HTTP::Params | Hash(String, String) | Tuple(String, String))</span>
+    assign_attributes</a>, 
+    
+  
+    <a href="../RethinkORM/Base.html#attributes-instance-method" class="tooltip">
+      <span>attributes</span>
+    attributes</a>, 
+    
+  
+    <a href="../RethinkORM/Base.html#attributes_tuple-instance-method" class="tooltip">
+      <span>attributes_tuple</span>
+    attributes_tuple</a>, 
+    
+  
+    <a href="../RethinkORM/Base.html#id_default:String?-instance-method" class="tooltip">
+      <span>id_default : String?</span>
+    id_default</a>, 
+    
+  
+    <a href="../RethinkORM/Base.html#persistent_attributes-instance-method" class="tooltip">
+      <span>persistent_attributes</span>
+    persistent_attributes</a>, 
+    
+  
+    <a href="../RethinkORM/Base.html#uuid_generator=(generator:Class)-instance-method" class="tooltip">
+      <span>uuid_generator=(generator : Class)</span>
+    uuid_generator=</a>
+    
+  
+
+
+    
+
+
+    
+
+  <h3>Class methods inherited from class <code><a href="../RethinkORM/Base.html">RethinkORM::Base</a></code></h3>
+  
+  
+    <a href="../RethinkORM/Base.html#all(**options)-class-method" class="tooltip">
+      <span>all(**options)</span>
+    all</a>, 
+    
+  
+    <a href="../RethinkORM/Base.html#attributes:Array(Symbol)-class-method" class="tooltip">
+      <span>attributes : Array(Symbol)</span>
+    attributes</a>, 
+    
+  
+    <a href="../RethinkORM/Base.html#changes(id:String?=nil,**options)-class-method" class="tooltip">
+      <span>changes(id : String? = <span class="n">nil</span>, **options)<br/>changes(**options, & : RethinkDB::Table -> HasChanges)</span>
+    changes</a>, 
+    
+  
+    <a href="../RethinkORM/Base.html#clear-class-method" class="tooltip">
+      <span>clear</span>
+    clear</a>, 
+    
+  
+    <a href="../RethinkORM/Base.html#collection_query(**options,&)-class-method" class="tooltip">
+      <span>collection_query(**options, &)</span>
+    collection_query</a>, 
+    
+  
+    <a href="../RethinkORM/Base.html#count(**attrs,&predicate:RethinkDB::DatumTerm-%3ERethinkDB::DatumTerm)-class-method" class="tooltip">
+      <span>count(**attrs, &predicate : RethinkDB::DatumTerm -> RethinkDB::DatumTerm)<br/>count(**attrs)<br/>count</span>
+    count</a>, 
+    
+  
+    <a href="../RethinkORM/Base.html#create(**attributes)-class-method" class="tooltip">
+      <span>create(**attributes)</span>
+    create</a>, 
+    
+  
+    <a href="../RethinkORM/Base.html#create!(**attributes)-class-method" class="tooltip">
+      <span>create!(**attributes)</span>
+    create!</a>, 
+    
+  
+    <a href="../RethinkORM/Base.html#exists?(id:String,**options)-class-method" class="tooltip">
+      <span>exists?(id : String, **options)</span>
+    exists?</a>, 
+    
+  
+    <a href="../RethinkORM/Base.html#find(id:String,**options)-class-method" class="tooltip">
+      <span>find(id : String, **options)</span>
+    find</a>, 
+    
+  
+    <a href="../RethinkORM/Base.html#find!(id:String,**options)-class-method" class="tooltip">
+      <span>find!(id : String, **options)</span>
+    find!</a>, 
+    
+  
+    <a href="../RethinkORM/Base.html#find_all(ids:Array%7CTuple,**options)-class-method" class="tooltip">
+      <span>find_all(ids : Array | Tuple, **options)</span>
+    find_all</a>, 
+    
+  
+    <a href="../RethinkORM/Base.html#find_by(**attribute)-class-method" class="tooltip">
+      <span>find_by(**attribute)<br/>find_by(**attribute, &predicate : RethinkDB::DatumTerm -> RethinkDB::DatumTerm)</span>
+    find_by</a>, 
+    
+  
+    <a href="../RethinkORM/Base.html#get_all(values:Array%7CTuple,**options)-class-method" class="tooltip">
+      <span>get_all(values : Array | Tuple, **options)</span>
+    get_all</a>, 
+    
+  
+    <a href="../RethinkORM/Base.html#has_index?(field)-class-method" class="tooltip">
+      <span>has_index?(field)</span>
+    has_index?</a>, 
+    
+  
+    <a href="../RethinkORM/Base.html#raw_changes(**options,&:RethinkDB::Table-%3EHasChanges)-class-method" class="tooltip">
+      <span>raw_changes(**options, & : RethinkDB::Table -> HasChanges)<br/>raw_changes(id : String? = <span class="n">nil</span>, **options)</span>
+    raw_changes</a>, 
+    
+  
+    <a href="../RethinkORM/Base.html#raw_query(**options,&)-class-method" class="tooltip">
+      <span>raw_query(**options, &)</span>
+    raw_query</a>, 
+    
+  
+    <a href="../RethinkORM/Base.html#table_query(**options,&)-class-method" class="tooltip">
+      <span>table_query(**options, &)</span>
+    table_query</a>, 
+    
+  
+    <a href="../RethinkORM/Base.html#where(&predicate:RethinkDB::DatumTerm-%3ERethinkDB::DatumTerm)-class-method" class="tooltip">
+      <span>where(&predicate : RethinkDB::DatumTerm -> RethinkDB::DatumTerm)<br/>where(**attrs, &predicate : RethinkDB::DatumTerm -> RethinkDB::DatumTerm)<br/>where(attrs : Hash, **options)<br/>where(**attrs)</span>
+    where</a>
+    
+  
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+  <h3>Instance methods inherited from module <code><a href="../RethinkORM/Persistence.html">RethinkORM::Persistence</a></code></h3>
+  
+  
+    <a href="../RethinkORM/Persistence.html#delete-instance-method" class="tooltip">
+      <span>delete</span>
+    delete</a>, 
+    
+  
+    <a href="../RethinkORM/Persistence.html#destroy-instance-method" class="tooltip">
+      <span>destroy</span>
+    destroy</a>, 
+    
+  
+    <a href="../RethinkORM/Persistence.html#destroyed-instance-method" class="tooltip">
+      <span>destroyed</span>
+    destroyed</a>, 
+    
+  
+    <a href="../RethinkORM/Persistence.html#destroyed=(destroyed)-instance-method" class="tooltip">
+      <span>destroyed=(destroyed)</span>
+    destroyed=</a>, 
+    
+  
+    <a href="../RethinkORM/Persistence.html#destroyed?-instance-method" class="tooltip">
+      <span>destroyed?</span>
+    destroyed?</a>, 
+    
+  
+    <a href="../RethinkORM/Persistence.html#new_record?-instance-method" class="tooltip">
+      <span>new_record?</span>
+    new_record?</a>, 
+    
+  
+    <a href="../RethinkORM/Persistence.html#persisted?-instance-method" class="tooltip">
+      <span>persisted?</span>
+    persisted?</a>, 
+    
+  
+    <a href="../RethinkORM/Persistence.html#reload!-instance-method" class="tooltip">
+      <span>reload!</span>
+    reload!</a>, 
+    
+  
+    <a href="../RethinkORM/Persistence.html#save(**options)-instance-method" class="tooltip">
+      <span>save(**options)</span>
+    save</a>, 
+    
+  
+    <a href="../RethinkORM/Persistence.html#save!(**options)-instance-method" class="tooltip">
+      <span>save!(**options)</span>
+    save!</a>, 
+    
+  
+    <a href="../RethinkORM/Persistence.html#update(**attributes)-instance-method" class="tooltip">
+      <span>update(**attributes)</span>
+    update</a>, 
+    
+  
+    <a href="../RethinkORM/Persistence.html#update!(**attributes)-instance-method" class="tooltip">
+      <span>update!(**attributes)</span>
+    update!</a>, 
+    
+  
+    <a href="../RethinkORM/Persistence.html#update_fields(**attributes)-instance-method" class="tooltip">
+      <span>update_fields(**attributes)</span>
+    update_fields</a>
+    
+  
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+  <h3>Instance methods inherited from module <code><a href="../RethinkORM/Associations.html">RethinkORM::Associations</a></code></h3>
+  
+  
+    <a href="../RethinkORM/Associations.html#reset_associations-instance-method" class="tooltip">
+      <span>reset_associations</span>
+    reset_associations</a>
+    
+  
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+  <h2>
+    <a id="constructor-detail" class="anchor" href="#constructor-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Constructor Detail
+  </h2>
+  
+    <div class="entry-detail" id="from_trusted_json(string_or_io:String|IO):self-class-method">
+      <div class="signature">
+        
+        def self.<strong>from_trusted_json</strong>(string_or_io : String | IO) : <span class="k">self</span>
+
+        <a class="method-permalink" href="#from_trusted_json(string_or_io:String%7CIO):self-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Serialize from a trusted JSON source</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="from_trusted_yaml(string_or_io:String|IO):self-class-method">
+      <div class="signature">
+        
+        def self.<strong>from_trusted_yaml</strong>(string_or_io : String | IO) : <span class="k">self</span>
+
+        <a class="method-permalink" href="#from_trusted_yaml(string_or_io:String%7CIO):self-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Serialize from a trusted YAML source</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="new(key:String,expire:Time::Span?=nil,timeout:Time::Span?=nil,instance_token:String=Lock.new_instance_token)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(key : String, expire : Time::Span? = <span class="n">nil</span>, timeout : Time::Span? = <span class="n">nil</span>, instance_token : String = <span class="t">Lock</span>.new_instance_token)
+
+        <a class="method-permalink" href="#new(key:String,expire:Time::Span?=nil,timeout:Time::Span?=nil,instance_token:String=Lock.new_instance_token)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Reset instance token if it's loaded and expired?</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="new(ctx:YAML::ParseContext,node:YAML::Nodes::Node)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(ctx : YAML::ParseContext, node : YAML::Nodes::Node)
+
+        <a class="method-permalink" href="#new(ctx:YAML::ParseContext,node:YAML::Nodes::Node)-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="new(id:String??=nil,key:String?=nil,instance_token:String?=nil,expires_at:Time?=nil)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(id : String?? = <span class="n">nil</span>, key : String? = <span class="n">nil</span>, instance_token : String? = <span class="n">nil</span>, expires_at : Time? = <span class="n">nil</span>)
+
+        <a class="method-permalink" href="#new(id:String??=nil,key:String?=nil,instance_token:String?=nil,expires_at:Time?=nil)-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="new(params:HTTP::Params|Hash(String,String)|Tuple(String,String))-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(params : HTTP::Params | Hash(String, String) | Tuple(String, String))
+
+        <a class="method-permalink" href="#new(params:HTTP::Params%7CHash(String,String)%7CTuple(String,String))-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Initialize RethinkORM::Lock from <code>HTTP::Params</code>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+
+  <h2>
+    <a id="class-method-detail" class="anchor" href="#class-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Class Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="attributes:Array(Symbol)-class-method">
+      <div class="signature">
+        
+        def self.<strong>attributes</strong> : Array(Symbol)
+
+        <a class="method-permalink" href="#attributes:Array(Symbol)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns all attribute keys.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="expired-class-method">
+      <div class="signature">
+        
+        def self.<strong>expired</strong>
+
+        <a class="method-permalink" href="#expired-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns all expired locks</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="find(key)-class-method">
+      <div class="signature">
+        
+        def self.<strong>find</strong>(key)
+
+        <a class="method-permalink" href="#find(key)-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Hash a key</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="table_name-class-method">
+      <div class="signature">
+        
+        def self.<strong>table_name</strong>
+
+        <a class="method-permalink" href="#table_name-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="after_create-instance-method">
+      <div class="signature">
+        
+        def <strong>after_create</strong>
+
+        <a class="method-permalink" href="#after_create-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>DB locks for RethinkDB</p>
+
+<p><span class="flag orange">TODO</span>  Conform to the <a href="http://nobrainer.io/">NoBrainer</a> locking interface.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="after_destroy-instance-method">
+      <div class="signature">
+        
+        def <strong>after_destroy</strong>
+
+        <a class="method-permalink" href="#after_destroy-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>DB locks for RethinkDB</p>
+
+<p><span class="flag orange">TODO</span>  Conform to the <a href="http://nobrainer.io/">NoBrainer</a> locking interface.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="after_save-instance-method">
+      <div class="signature">
+        
+        def <strong>after_save</strong>
+
+        <a class="method-permalink" href="#after_save-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>DB locks for RethinkDB</p>
+
+<p><span class="flag orange">TODO</span>  Conform to the <a href="http://nobrainer.io/">NoBrainer</a> locking interface.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="after_update-instance-method">
+      <div class="signature">
+        
+        def <strong>after_update</strong>
+
+        <a class="method-permalink" href="#after_update-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>DB locks for RethinkDB</p>
+
+<p><span class="flag orange">TODO</span>  Conform to the <a href="http://nobrainer.io/">NoBrainer</a> locking interface.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="apply_defaults-instance-method">
+      <div class="signature">
+        
+        def <strong>apply_defaults</strong>
+
+        <a class="method-permalink" href="#apply_defaults-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Generate code to apply default values</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="assign_attributes(id:String?|Missing=Missing,key:String|Missing=Missing,instance_token:String|Missing=Missing,expires_at:Time|Missing=Missing)-instance-method">
+      <div class="signature">
+        
+        def <strong>assign_attributes</strong>(id : String? | Missing = <span class="t">Missing</span>, key : String | Missing = <span class="t">Missing</span>, instance_token : String | Missing = <span class="t">Missing</span>, expires_at : Time | Missing = <span class="t">Missing</span>)
+
+        <a class="method-permalink" href="#assign_attributes(id:String?%7CMissing=Missing,key:String%7CMissing=Missing,instance_token:String%7CMissing=Missing,expires_at:Time%7CMissing=Missing)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Assign to multiple attributes.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="assign_attributes(params:HTTP::Params|Hash(String,String)|Tuple(String,String))-instance-method">
+      <div class="signature">
+        
+        def <strong>assign_attributes</strong>(params : HTTP::Params | Hash(String, String) | Tuple(String, String))
+
+        <a class="method-permalink" href="#assign_attributes(params:HTTP::Params%7CHash(String,String)%7CTuple(String,String))-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Assign to mulitple attributes via <code>HTTP::Params</code>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="assign_attributes_from_json(json)-instance-method">
+      <div class="signature">
+        
+        def <strong>assign_attributes_from_json</strong>(json)
+
+        <a class="method-permalink" href="#assign_attributes_from_json(json)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="assign_attributes_from_trusted_json(json)-instance-method">
+      <div class="signature">
+        
+        def <strong>assign_attributes_from_trusted_json</strong>(json)
+
+        <a class="method-permalink" href="#assign_attributes_from_trusted_json(json)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="assign_attributes_from_trusted_yaml(yaml)-instance-method">
+      <div class="signature">
+        
+        def <strong>assign_attributes_from_trusted_yaml</strong>(yaml)
+
+        <a class="method-permalink" href="#assign_attributes_from_trusted_yaml(yaml)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="assign_attributes_from_yaml(yaml)-instance-method">
+      <div class="signature">
+        
+        def <strong>assign_attributes_from_yaml</strong>(yaml)
+
+        <a class="method-permalink" href="#assign_attributes_from_yaml(yaml)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Uses the YAML parser as JSON is valid YAML</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="attributes-instance-method">
+      <div class="signature">
+        
+        def <strong>attributes</strong>
+
+        <a class="method-permalink" href="#attributes-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns a <code>Hash</code> of all attribute values</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="attributes_tuple-instance-method">
+      <div class="signature">
+        
+        def <strong>attributes_tuple</strong>
+
+        <a class="method-permalink" href="#attributes_tuple-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns a <code>NamedTuple</code> of all attribute values.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="before_create-instance-method">
+      <div class="signature">
+        
+        def <strong>before_create</strong>
+
+        <a class="method-permalink" href="#before_create-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>DB locks for RethinkDB</p>
+
+<p><span class="flag orange">TODO</span>  Conform to the <a href="http://nobrainer.io/">NoBrainer</a> locking interface.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="before_destroy-instance-method">
+      <div class="signature">
+        
+        def <strong>before_destroy</strong>
+
+        <a class="method-permalink" href="#before_destroy-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>DB locks for RethinkDB</p>
+
+<p><span class="flag orange">TODO</span>  Conform to the <a href="http://nobrainer.io/">NoBrainer</a> locking interface.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="before_save-instance-method">
+      <div class="signature">
+        
+        def <strong>before_save</strong>
+
+        <a class="method-permalink" href="#before_save-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>DB locks for RethinkDB</p>
+
+<p><span class="flag orange">TODO</span>  Conform to the <a href="http://nobrainer.io/">NoBrainer</a> locking interface.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="before_update-instance-method">
+      <div class="signature">
+        
+        def <strong>before_update</strong>
+
+        <a class="method-permalink" href="#before_update-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>DB locks for RethinkDB</p>
+
+<p><span class="flag orange">TODO</span>  Conform to the <a href="http://nobrainer.io/">NoBrainer</a> locking interface.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="changed?-instance-method">
+      <div class="signature">
+        
+        def <strong>changed?</strong>
+
+        <a class="method-permalink" href="#changed?-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Check if any attributes have changed.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="changed_attributes-instance-method">
+      <div class="signature">
+        
+        def <strong>changed_attributes</strong>
+
+        <a class="method-permalink" href="#changed_attributes-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns a <code>Hash</code> with all changed attributes.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="changed_json:String-instance-method">
+      <div class="signature">
+        
+        def <strong>changed_json</strong> : String
+
+        <a class="method-permalink" href="#changed_json:String-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Serialize the set of changed attributes to JSON.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="changed_json(io:IO):Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>changed_json</strong>(io : IO) : Nil
+
+        <a class="method-permalink" href="#changed_json(io:IO):Nil-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Serialize the set of changed attributes to JSON.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="changed_yaml:String-instance-method">
+      <div class="signature">
+        
+        def <strong>changed_yaml</strong> : String
+
+        <a class="method-permalink" href="#changed_yaml:String-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Serialize the set of changed attributes to YAML.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="changed_yaml(io:IO):Nil-instance-method">
+      <div class="signature">
+        
+        def <strong>changed_yaml</strong>(io : IO) : Nil
+
+        <a class="method-permalink" href="#changed_yaml(io:IO):Nil-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Serialize the set of changed attributes to YAML.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="clear_changes_information-instance-method">
+      <div class="signature">
+        
+        def <strong>clear_changes_information</strong>
+
+        <a class="method-permalink" href="#clear_changes_information-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Reset changes for all attributes.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="expire:Time::Span-instance-method">
+      <div class="signature">
+        
+        def <strong>expire</strong> : Time::Span
+
+        <a class="method-permalink" href="#expire:Time::Span-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Seconds before the lock expires</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="expire=(expire:Time::Span)-instance-method">
+      <div class="signature">
+        
+        def <strong>expire=</strong>(expire : Time::Span)
+
+        <a class="method-permalink" href="#expire=(expire:Time::Span)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Seconds before the lock expires</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="expires_at:Time-instance-method">
+      <div class="signature">
+        
+        def <strong>expires_at</strong> : Time
+
+        <a class="method-permalink" href="#expires_at:Time-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p><code><a href="../RethinkORM/Lock.html#expires_at:Time-instance-method">#expires_at</a></code> getter</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="expires_at=(value:Time)-instance-method">
+      <div class="signature">
+        
+        def <strong>expires_at=</strong>(value : Time)
+
+        <a class="method-permalink" href="#expires_at=(value:Time)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p><code><a href="../RethinkORM/Lock.html#expires_at:Time-instance-method">#expires_at</a></code> setter</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="expires_at_change-instance-method">
+      <div class="signature">
+        
+        def <strong>expires_at_change</strong>
+
+        <a class="method-permalink" href="#expires_at_change-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns <code>{ expires_at_was, expires_at }</code> if <code><a href="../RethinkORM/Lock.html#expires_at:Time-instance-method">#expires_at</a></code> has changed.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="expires_at_changed?-instance-method">
+      <div class="signature">
+        
+        def <strong>expires_at_changed?</strong>
+
+        <a class="method-permalink" href="#expires_at_changed?-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Check if <code><a href="../RethinkORM/Lock.html#expires_at:Time-instance-method">#expires_at</a></code> is in the set of changed attributes.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="expires_at_default:Time-instance-method">
+      <div class="signature">
+        
+        def <strong>expires_at_default</strong> : Time
+
+        <a class="method-permalink" href="#expires_at_default:Time-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p><code><a href="../RethinkORM/Lock.html#expires_at:Time-instance-method">#expires_at</a></code>'s default value</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="expires_at_was:Time?-instance-method">
+      <div class="signature">
+        
+        def <strong>expires_at_was</strong> : Time?
+
+        <a class="method-permalink" href="#expires_at_was:Time?-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the previous value of <code><a href="../RethinkORM/Lock.html#expires_at:Time-instance-method">#expires_at</a></code>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="expires_at_will_change!-instance-method">
+      <div class="signature">
+        
+        def <strong>expires_at_will_change!</strong>
+
+        <a class="method-permalink" href="#expires_at_will_change!-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Include <code><a href="../RethinkORM/Lock.html#expires_at:Time-instance-method">#expires_at</a></code> in the set of changed attributes, whether it has changed or not.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="id:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>id</strong> : String?
+
+        <a class="method-permalink" href="#id:String?-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p><code><a href="../RethinkORM/Lock.html#id:String?-instance-method">#id</a></code> getter</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="id=(value:String?)-instance-method">
+      <div class="signature">
+        
+        def <strong>id=</strong>(value : String?)
+
+        <a class="method-permalink" href="#id=(value:String?)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Override the map json
+<code><a href="../RethinkORM/Lock.html#id:String?-instance-method">#id</a></code> setter</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="id_change-instance-method">
+      <div class="signature">
+        
+        def <strong>id_change</strong>
+
+        <a class="method-permalink" href="#id_change-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns <code>{ id_was, id }</code> if <code><a href="../RethinkORM/Lock.html#id:String?-instance-method">#id</a></code> has changed.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="id_changed?-instance-method">
+      <div class="signature">
+        
+        def <strong>id_changed?</strong>
+
+        <a class="method-permalink" href="#id_changed?-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Check if <code><a href="../RethinkORM/Lock.html#id:String?-instance-method">#id</a></code> is in the set of changed attributes.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="id_default:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>id_default</strong> : String?
+
+        <a class="method-permalink" href="#id_default:String?-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p><code><a href="../RethinkORM/Lock.html#id:String?-instance-method">#id</a></code>'s default value</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="id_was:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>id_was</strong> : String?
+
+        <a class="method-permalink" href="#id_was:String?-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the previous value of <code><a href="../RethinkORM/Lock.html#id:String?-instance-method">#id</a></code>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="id_will_change!-instance-method">
+      <div class="signature">
+        
+        def <strong>id_will_change!</strong>
+
+        <a class="method-permalink" href="#id_will_change!-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Include <code><a href="../RethinkORM/Lock.html#id:String?-instance-method">#id</a></code> in the set of changed attributes, whether it has changed or not.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="instance_token:String-instance-method">
+      <div class="signature">
+        
+        def <strong>instance_token</strong> : String
+
+        <a class="method-permalink" href="#instance_token:String-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p><code><a href="../RethinkORM/Lock.html#instance_token:String-instance-method">#instance_token</a></code> getter</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="instance_token=(value:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>instance_token=</strong>(value : String)
+
+        <a class="method-permalink" href="#instance_token=(value:String)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p><code><a href="../RethinkORM/Lock.html#instance_token:String-instance-method">#instance_token</a></code> setter</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="instance_token_change-instance-method">
+      <div class="signature">
+        
+        def <strong>instance_token_change</strong>
+
+        <a class="method-permalink" href="#instance_token_change-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns <code>{ instance_token_was, instance_token }</code> if <code><a href="../RethinkORM/Lock.html#instance_token:String-instance-method">#instance_token</a></code> has changed.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="instance_token_changed?-instance-method">
+      <div class="signature">
+        
+        def <strong>instance_token_changed?</strong>
+
+        <a class="method-permalink" href="#instance_token_changed?-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Check if <code><a href="../RethinkORM/Lock.html#instance_token:String-instance-method">#instance_token</a></code> is in the set of changed attributes.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="instance_token_default:String-instance-method">
+      <div class="signature">
+        
+        def <strong>instance_token_default</strong> : String
+
+        <a class="method-permalink" href="#instance_token_default:String-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p><code><a href="../RethinkORM/Lock.html#instance_token:String-instance-method">#instance_token</a></code>'s default value</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="instance_token_was:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>instance_token_was</strong> : String?
+
+        <a class="method-permalink" href="#instance_token_was:String?-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the previous value of <code><a href="../RethinkORM/Lock.html#instance_token:String-instance-method">#instance_token</a></code>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="instance_token_will_change!-instance-method">
+      <div class="signature">
+        
+        def <strong>instance_token_will_change!</strong>
+
+        <a class="method-permalink" href="#instance_token_will_change!-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Include <code><a href="../RethinkORM/Lock.html#instance_token:String-instance-method">#instance_token</a></code> in the set of changed attributes, whether it has changed or not.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="key:String-instance-method">
+      <div class="signature">
+        
+        def <strong>key</strong> : String
+
+        <a class="method-permalink" href="#key:String-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p><code><a href="../RethinkORM/Lock.html#key:String-instance-method">#key</a></code> getter</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="key=(value:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>key=</strong>(value : String)
+
+        <a class="method-permalink" href="#key=(value:String)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p><code><a href="../RethinkORM/Lock.html#key:String-instance-method">#key</a></code> setter</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="key_change-instance-method">
+      <div class="signature">
+        
+        def <strong>key_change</strong>
+
+        <a class="method-permalink" href="#key_change-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns <code>{ key_was, key }</code> if <code><a href="../RethinkORM/Lock.html#key:String-instance-method">#key</a></code> has changed.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="key_changed?-instance-method">
+      <div class="signature">
+        
+        def <strong>key_changed?</strong>
+
+        <a class="method-permalink" href="#key_changed?-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Check if <code><a href="../RethinkORM/Lock.html#key:String-instance-method">#key</a></code> is in the set of changed attributes.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="key_default:String-instance-method">
+      <div class="signature">
+        
+        def <strong>key_default</strong> : String
+
+        <a class="method-permalink" href="#key_default:String-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p><code><a href="../RethinkORM/Lock.html#key:String-instance-method">#key</a></code>'s default value</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="key_was:String?-instance-method">
+      <div class="signature">
+        
+        def <strong>key_was</strong> : String?
+
+        <a class="method-permalink" href="#key_was:String?-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns the previous value of <code><a href="../RethinkORM/Lock.html#key:String-instance-method">#key</a></code>.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="key_will_change!-instance-method">
+      <div class="signature">
+        
+        def <strong>key_will_change!</strong>
+
+        <a class="method-permalink" href="#key_will_change!-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Include <code><a href="../RethinkORM/Lock.html#key:String-instance-method">#key</a></code> in the set of changed attributes, whether it has changed or not.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="lock(expire:Time::Span=self.expire,timeout:Time::Span=self.timeout)-instance-method">
+      <div class="signature">
+        
+        def <strong>lock</strong>(expire : Time::Span = <span class="k">self</span>.expire, timeout : Time::Span = <span class="k">self</span>.timeout)
+
+        <a class="method-permalink" href="#lock(expire:Time::Span=self.expire,timeout:Time::Span=self.timeout)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="locked?:Bool-instance-method">
+      <div class="signature">
+        
+        def <strong>locked?</strong> : Bool
+
+        <a class="method-permalink" href="#locked?:Bool-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="persistent_attributes-instance-method">
+      <div class="signature">
+        
+        def <strong>persistent_attributes</strong>
+
+        <a class="method-permalink" href="#persistent_attributes-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Returns a <code>Hash</code> of all attributes that can be persisted.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="refresh(expire:Time::Span?=nil)-instance-method">
+      <div class="signature">
+        
+        def <strong>refresh</strong>(expire : Time::Span? = <span class="n">nil</span>)
+
+        <a class="method-permalink" href="#refresh(expire:Time::Span?=nil)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="restore_attributes-instance-method">
+      <div class="signature">
+        
+        def <strong>restore_attributes</strong>
+
+        <a class="method-permalink" href="#restore_attributes-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Reset each attribute to their previous values and clears all changes.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="run_create_callbacks(&)-instance-method">
+      <div class="signature">
+        
+        def <strong>run_create_callbacks</strong>(&)
+
+        <a class="method-permalink" href="#run_create_callbacks(&)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Wrap a block with callbacks for the appropriate crud operation</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="run_destroy_callbacks(&)-instance-method">
+      <div class="signature">
+        
+        def <strong>run_destroy_callbacks</strong>(&)
+
+        <a class="method-permalink" href="#run_destroy_callbacks(&)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>DB locks for RethinkDB</p>
+
+<p><span class="flag orange">TODO</span>  Conform to the <a href="http://nobrainer.io/">NoBrainer</a> locking interface.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="run_save_callbacks(&)-instance-method">
+      <div class="signature">
+        
+        def <strong>run_save_callbacks</strong>(&)
+
+        <a class="method-permalink" href="#run_save_callbacks(&)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>DB locks for RethinkDB</p>
+
+<p><span class="flag orange">TODO</span>  Conform to the <a href="http://nobrainer.io/">NoBrainer</a> locking interface.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="run_update_callbacks(&)-instance-method">
+      <div class="signature">
+        
+        def <strong>run_update_callbacks</strong>(&)
+
+        <a class="method-permalink" href="#run_update_callbacks(&)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>DB locks for RethinkDB</p>
+
+<p><span class="flag orange">TODO</span>  Conform to the <a href="http://nobrainer.io/">NoBrainer</a> locking interface.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="synchronize(**options,&)-instance-method">
+      <div class="signature">
+        
+        def <strong>synchronize</strong>(**options, &)
+
+        <a class="method-permalink" href="#synchronize(**options,&)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="table_name-instance-method">
+      <div class="signature">
+        
+        def <strong>table_name</strong>
+
+        <a class="method-permalink" href="#table_name-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="timeout:Time::Span-instance-method">
+      <div class="signature">
+        
+        def <strong>timeout</strong> : Time::Span
+
+        <a class="method-permalink" href="#timeout:Time::Span-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Lock acquisition timeout</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="timeout=(timeout:Time::Span)-instance-method">
+      <div class="signature">
+        
+        def <strong>timeout=</strong>(timeout : Time::Span)
+
+        <a class="method-permalink" href="#timeout=(timeout:Time::Span)-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Lock acquisition timeout</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="to_json(json:JSON::Builder)-instance-method">
+      <div class="signature">
+        
+        def <strong>to_json</strong>(json : JSON::Builder)
+
+        <a class="method-permalink" href="#to_json(json:JSON::Builder)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="to_yaml(__temp_76:YAML::Nodes::Builder)-instance-method">
+      <div class="signature">
+        
+        def <strong>to_yaml</strong>(__temp_76 : YAML::Nodes::Builder)
+
+        <a class="method-permalink" href="#to_yaml(__temp_76:YAML::Nodes::Builder)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="try_lock(expire:Time::Span=self.expire)-instance-method">
+      <div class="signature">
+        
+        def <strong>try_lock</strong>(expire : Time::Span = <span class="k">self</span>.expire)
+
+        <a class="method-permalink" href="#try_lock(expire:Time::Span=self.expire)-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="unlock-instance-method">
+      <div class="signature">
+        
+        def <strong>unlock</strong>
+
+        <a class="method-permalink" href="#unlock-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="validate_nilability-instance-method">
+      <div class="signature">
+        
+        def <strong>validate_nilability</strong>
+
+        <a class="method-permalink" href="#validate_nilability-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Validate that all non-nillable fields have values.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>

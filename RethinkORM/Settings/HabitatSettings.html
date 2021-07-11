@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 0.36.1">
+<meta name="crystal_docs.project_version" content="4.1.1">
+<meta name="crystal_docs.project_name" content="rethinkdb-orm">
+
+
+
+<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../../js/doc.js"></script>
+
+  <meta name="repository-name" content="rethinkdb-orm">
+  <title>RethinkORM::Settings::HabitatSettings - rethinkdb-orm 4.1.1</title>
+  <script type="text/javascript">
+    CrystalDocs.base_path = "../../";
+  </script>
+</head>
+<body>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="../../index.html">
+          rethinkdb-orm
+        </a>
+      </h1>
+
+      <span class="project-version">
+        4.1.1
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class="parent " data-id="rethinkdb-orm/RethinkDB" data-name="rethinkdb">
+      <a href="../../RethinkDB.html">RethinkDB</a>
+      
+        <ul>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkDB/Connection" data-name="rethinkdb::connection">
+      <a href="../../RethinkDB/Connection.html">Connection</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent open current" data-id="rethinkdb-orm/RethinkORM" data-name="rethinkorm">
+      <a href="../../RethinkORM.html">RethinkORM</a>
+      
+        <ul>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/AssociationCollection" data-name="rethinkorm::associationcollection(owner, target)">
+      <a href="../../RethinkORM/AssociationCollection.html">AssociationCollection</a>
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Associations" data-name="rethinkorm::associations">
+      <a href="../../RethinkORM/Associations.html">Associations</a>
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Base" data-name="rethinkorm::base">
+      <a href="../../RethinkORM/Base.html">Base</a>
+      
+    </li>
+  
+  <li class="parent " data-id="rethinkdb-orm/RethinkORM/Changefeed" data-name="rethinkorm::changefeed(t)">
+      <a href="../../RethinkORM/Changefeed.html">Changefeed</a>
+      
+        <ul>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Changefeed/Event" data-name="rethinkorm::changefeed::event">
+      <a href="../../RethinkORM/Changefeed/Event.html">Event</a>
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Changefeed/Raw" data-name="rethinkorm::changefeed::raw">
+      <a href="../../RethinkORM/Changefeed/Raw.html">Raw</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Collection" data-name="rethinkorm::collection(t)">
+      <a href="../../RethinkORM/Collection.html">Collection</a>
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Connection" data-name="rethinkorm::connection">
+      <a href="../../RethinkORM/Connection.html">Connection</a>
+      
+    </li>
+  
+  <li class="parent " data-id="rethinkdb-orm/RethinkORM/Error" data-name="rethinkorm::error">
+      <a href="../../RethinkORM/Error.html">Error</a>
+      
+        <ul>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Error/ChangefeedClosed" data-name="rethinkorm::error::changefeedclosed">
+      <a href="../../RethinkORM/Error/ChangefeedClosed.html">ChangefeedClosed</a>
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Error/ConnectError" data-name="rethinkorm::error::connecterror">
+      <a href="../../RethinkORM/Error/ConnectError.html">ConnectError</a>
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Error/DatabaseError" data-name="rethinkorm::error::databaseerror">
+      <a href="../../RethinkORM/Error/DatabaseError.html">DatabaseError</a>
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Error/DocumentExists" data-name="rethinkorm::error::documentexists">
+      <a href="../../RethinkORM/Error/DocumentExists.html">DocumentExists</a>
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Error/DocumentInvalid" data-name="rethinkorm::error::documentinvalid">
+      <a href="../../RethinkORM/Error/DocumentInvalid.html">DocumentInvalid</a>
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Error/DocumentNotFound" data-name="rethinkorm::error::documentnotfound">
+      <a href="../../RethinkORM/Error/DocumentNotFound.html">DocumentNotFound</a>
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Error/DocumentNotSaved" data-name="rethinkorm::error::documentnotsaved">
+      <a href="../../RethinkORM/Error/DocumentNotSaved.html">DocumentNotSaved</a>
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Error/LockInvalidOp" data-name="rethinkorm::error::lockinvalidop">
+      <a href="../../RethinkORM/Error/LockInvalidOp.html">LockInvalidOp</a>
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Error/LockLost" data-name="rethinkorm::error::locklost">
+      <a href="../../RethinkORM/Error/LockLost.html">LockLost</a>
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Error/LockUnavailable" data-name="rethinkorm::error::lockunavailable">
+      <a href="../../RethinkORM/Error/LockUnavailable.html">LockUnavailable</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/IdGenerator" data-name="rethinkorm::idgenerator">
+      <a href="../../RethinkORM/IdGenerator.html">IdGenerator</a>
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Index" data-name="rethinkorm::index">
+      <a href="../../RethinkORM/Index.html">Index</a>
+      
+    </li>
+  
+  <li class="parent " data-id="rethinkdb-orm/RethinkORM/Lock" data-name="rethinkorm::lock">
+      <a href="../../RethinkORM/Lock.html">Lock</a>
+      
+        <ul>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Lock/Reentrant" data-name="rethinkorm::lock::reentrant">
+      <a href="../../RethinkORM/Lock/Reentrant.html">Reentrant</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Persistence" data-name="rethinkorm::persistence">
+      <a href="../../RethinkORM/Persistence.html">Persistence</a>
+      
+    </li>
+  
+  <li class="parent " data-id="rethinkdb-orm/RethinkORM/Queries" data-name="rethinkorm::queries">
+      <a href="../../RethinkORM/Queries.html">Queries</a>
+      
+        <ul>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Queries/HasChanges" data-name="rethinkorm::queries::haschanges">
+      <a href="../../RethinkORM/Queries/HasChanges.html">HasChanges</a>
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Queries/R" data-name="rethinkorm::queries::r">
+      <a href="../../RethinkORM/Queries/R.html">R</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent open current" data-id="rethinkdb-orm/RethinkORM/Settings" data-name="rethinkorm::settings">
+      <a href="../../RethinkORM/Settings.html">Settings</a>
+      
+        <ul>
+  
+  <li class=" current" data-id="rethinkdb-orm/RethinkORM/Settings/HabitatSettings" data-name="rethinkorm::settings::habitatsettings">
+      <a href="../../RethinkORM/Settings/HabitatSettings.html">HabitatSettings</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Table" data-name="rethinkorm::table">
+      <a href="../../RethinkORM/Table.html">Table</a>
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Timestamps" data-name="rethinkorm::timestamps">
+      <a href="../../RethinkORM/Timestamps.html">Timestamps</a>
+      
+    </li>
+  
+  <li class=" " data-id="rethinkdb-orm/RethinkORM/Validators" data-name="rethinkorm::validators">
+      <a href="../../RethinkORM/Validators.html">Validators</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">class</span> RethinkORM::Settings::HabitatSettings
+
+</h1>
+
+
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../RethinkORM/Settings/HabitatSettings.html">RethinkORM::Settings::HabitatSettings</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
+  
+    
+      rethinkdb-orm/settings.cr
+    
+    <br/>
+  
+
+
+
+
+
+
+
+  <h2>
+    <a id="class-method-summary" class="anchor" href="#class-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Class Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#db:String-class-method" class="signature"><strong>.db</strong> : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#db=(value:String)-class-method" class="signature"><strong>.db=</strong>(value : String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#db?-class-method" class="signature"><strong>.db?</strong></a>
+        
+          <div class="summary"><p>Used for checking missing settings on non-nilable types It's advised to use db in your apps to ensure the propper type is checked.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#host:String-class-method" class="signature"><strong>.host</strong> : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#host=(value:String)-class-method" class="signature"><strong>.host=</strong>(value : String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#host?-class-method" class="signature"><strong>.host?</strong></a>
+        
+          <div class="summary"><p>Used for checking missing settings on non-nilable types It's advised to use host in your apps to ensure the propper type is checked.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#lock_expire:Time::Span-class-method" class="signature"><strong>.lock_expire</strong> : Time::Span</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#lock_expire=(value:Time::Span)-class-method" class="signature"><strong>.lock_expire=</strong>(value : Time::Span)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#lock_expire?-class-method" class="signature"><strong>.lock_expire?</strong></a>
+        
+          <div class="summary"><p>Used for checking missing settings on non-nilable types It's advised to use lock_expire in your apps to ensure the propper type is checked.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#lock_timeout:Time::Span-class-method" class="signature"><strong>.lock_timeout</strong> : Time::Span</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#lock_timeout=(value:Time::Span)-class-method" class="signature"><strong>.lock_timeout=</strong>(value : Time::Span)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#lock_timeout?-class-method" class="signature"><strong>.lock_timeout?</strong></a>
+        
+          <div class="summary"><p>Used for checking missing settings on non-nilable types It's advised to use lock_timeout in your apps to ensure the propper type is checked.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#password:String-class-method" class="signature"><strong>.password</strong> : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#password=(value:String)-class-method" class="signature"><strong>.password=</strong>(value : String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#password?-class-method" class="signature"><strong>.password?</strong></a>
+        
+          <div class="summary"><p>Used for checking missing settings on non-nilable types It's advised to use password in your apps to ensure the propper type is checked.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#port:Int32-class-method" class="signature"><strong>.port</strong> : Int32</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#port=(value:Int32)-class-method" class="signature"><strong>.port=</strong>(value : Int32)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#port?-class-method" class="signature"><strong>.port?</strong></a>
+        
+          <div class="summary"><p>Used for checking missing settings on non-nilable types It's advised to use port in your apps to ensure the propper type is checked.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#query_retries:Int32-class-method" class="signature"><strong>.query_retries</strong> : Int32</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#query_retries=(value:Int32)-class-method" class="signature"><strong>.query_retries=</strong>(value : Int32)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#query_retries?-class-method" class="signature"><strong>.query_retries?</strong></a>
+        
+          <div class="summary"><p>Used for checking missing settings on non-nilable types It's advised to use query_retries in your apps to ensure the propper type is checked.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#retry_attempts:Int32-class-method" class="signature"><strong>.retry_attempts</strong> : Int32</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#retry_attempts=(value:Int32)-class-method" class="signature"><strong>.retry_attempts=</strong>(value : Int32)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#retry_attempts?-class-method" class="signature"><strong>.retry_attempts?</strong></a>
+        
+          <div class="summary"><p>Used for checking missing settings on non-nilable types It's advised to use retry_attempts in your apps to ensure the propper type is checked.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#retry_interval:Time::Span-class-method" class="signature"><strong>.retry_interval</strong> : Time::Span</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#retry_interval=(value:Time::Span)-class-method" class="signature"><strong>.retry_interval=</strong>(value : Time::Span)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#retry_interval?-class-method" class="signature"><strong>.retry_interval?</strong></a>
+        
+          <div class="summary"><p>Used for checking missing settings on non-nilable types It's advised to use retry_interval in your apps to ensure the propper type is checked.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#to_h-class-method" class="signature"><strong>.to_h</strong></a>
+        
+          <div class="summary"><p>Generates a hash using the provided values</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#user:String-class-method" class="signature"><strong>.user</strong> : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#user=(value:String)-class-method" class="signature"><strong>.user=</strong>(value : String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#user?-class-method" class="signature"><strong>.user?</strong></a>
+        
+          <div class="summary"><p>Used for checking missing settings on non-nilable types It's advised to use user in your apps to ensure the propper type is checked.</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+
+
+<div class="methods-inherited">
+  
+    
+
+
+    
+
+
+    
+
+
+  
+    
+
+
+    
+
+
+    
+
+
+  
+</div>
+
+
+
+
+  <h2>
+    <a id="class-method-detail" class="anchor" href="#class-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Class Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="db:String-class-method">
+      <div class="signature">
+        
+        def self.<strong>db</strong> : String
+
+        <a class="method-permalink" href="#db:String-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="db=(value:String)-class-method">
+      <div class="signature">
+        
+        def self.<strong>db=</strong>(value : String)
+
+        <a class="method-permalink" href="#db=(value:String)-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="db?-class-method">
+      <div class="signature">
+        
+        def self.<strong>db?</strong>
+
+        <a class="method-permalink" href="#db?-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Used for checking missing settings on non-nilable types
+It's advised to use db in your apps to ensure
+the propper type is checked.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="host:String-class-method">
+      <div class="signature">
+        
+        def self.<strong>host</strong> : String
+
+        <a class="method-permalink" href="#host:String-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="host=(value:String)-class-method">
+      <div class="signature">
+        
+        def self.<strong>host=</strong>(value : String)
+
+        <a class="method-permalink" href="#host=(value:String)-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="host?-class-method">
+      <div class="signature">
+        
+        def self.<strong>host?</strong>
+
+        <a class="method-permalink" href="#host?-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Used for checking missing settings on non-nilable types
+It's advised to use host in your apps to ensure
+the propper type is checked.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="lock_expire:Time::Span-class-method">
+      <div class="signature">
+        
+        def self.<strong>lock_expire</strong> : Time::Span
+
+        <a class="method-permalink" href="#lock_expire:Time::Span-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="lock_expire=(value:Time::Span)-class-method">
+      <div class="signature">
+        
+        def self.<strong>lock_expire=</strong>(value : Time::Span)
+
+        <a class="method-permalink" href="#lock_expire=(value:Time::Span)-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="lock_expire?-class-method">
+      <div class="signature">
+        
+        def self.<strong>lock_expire?</strong>
+
+        <a class="method-permalink" href="#lock_expire?-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Used for checking missing settings on non-nilable types
+It's advised to use lock_expire in your apps to ensure
+the propper type is checked.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="lock_timeout:Time::Span-class-method">
+      <div class="signature">
+        
+        def self.<strong>lock_timeout</strong> : Time::Span
+
+        <a class="method-permalink" href="#lock_timeout:Time::Span-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="lock_timeout=(value:Time::Span)-class-method">
+      <div class="signature">
+        
+        def self.<strong>lock_timeout=</strong>(value : Time::Span)
+
+        <a class="method-permalink" href="#lock_timeout=(value:Time::Span)-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="lock_timeout?-class-method">
+      <div class="signature">
+        
+        def self.<strong>lock_timeout?</strong>
+
+        <a class="method-permalink" href="#lock_timeout?-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Used for checking missing settings on non-nilable types
+It's advised to use lock_timeout in your apps to ensure
+the propper type is checked.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="password:String-class-method">
+      <div class="signature">
+        
+        def self.<strong>password</strong> : String
+
+        <a class="method-permalink" href="#password:String-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="password=(value:String)-class-method">
+      <div class="signature">
+        
+        def self.<strong>password=</strong>(value : String)
+
+        <a class="method-permalink" href="#password=(value:String)-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="password?-class-method">
+      <div class="signature">
+        
+        def self.<strong>password?</strong>
+
+        <a class="method-permalink" href="#password?-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Used for checking missing settings on non-nilable types
+It's advised to use password in your apps to ensure
+the propper type is checked.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="port:Int32-class-method">
+      <div class="signature">
+        
+        def self.<strong>port</strong> : Int32
+
+        <a class="method-permalink" href="#port:Int32-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="port=(value:Int32)-class-method">
+      <div class="signature">
+        
+        def self.<strong>port=</strong>(value : Int32)
+
+        <a class="method-permalink" href="#port=(value:Int32)-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="port?-class-method">
+      <div class="signature">
+        
+        def self.<strong>port?</strong>
+
+        <a class="method-permalink" href="#port?-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Used for checking missing settings on non-nilable types
+It's advised to use port in your apps to ensure
+the propper type is checked.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="query_retries:Int32-class-method">
+      <div class="signature">
+        
+        def self.<strong>query_retries</strong> : Int32
+
+        <a class="method-permalink" href="#query_retries:Int32-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="query_retries=(value:Int32)-class-method">
+      <div class="signature">
+        
+        def self.<strong>query_retries=</strong>(value : Int32)
+
+        <a class="method-permalink" href="#query_retries=(value:Int32)-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="query_retries?-class-method">
+      <div class="signature">
+        
+        def self.<strong>query_retries?</strong>
+
+        <a class="method-permalink" href="#query_retries?-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Used for checking missing settings on non-nilable types
+It's advised to use query_retries in your apps to ensure
+the propper type is checked.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="retry_attempts:Int32-class-method">
+      <div class="signature">
+        
+        def self.<strong>retry_attempts</strong> : Int32
+
+        <a class="method-permalink" href="#retry_attempts:Int32-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="retry_attempts=(value:Int32)-class-method">
+      <div class="signature">
+        
+        def self.<strong>retry_attempts=</strong>(value : Int32)
+
+        <a class="method-permalink" href="#retry_attempts=(value:Int32)-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="retry_attempts?-class-method">
+      <div class="signature">
+        
+        def self.<strong>retry_attempts?</strong>
+
+        <a class="method-permalink" href="#retry_attempts?-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Used for checking missing settings on non-nilable types
+It's advised to use retry_attempts in your apps to ensure
+the propper type is checked.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="retry_interval:Time::Span-class-method">
+      <div class="signature">
+        
+        def self.<strong>retry_interval</strong> : Time::Span
+
+        <a class="method-permalink" href="#retry_interval:Time::Span-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="retry_interval=(value:Time::Span)-class-method">
+      <div class="signature">
+        
+        def self.<strong>retry_interval=</strong>(value : Time::Span)
+
+        <a class="method-permalink" href="#retry_interval=(value:Time::Span)-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="retry_interval?-class-method">
+      <div class="signature">
+        
+        def self.<strong>retry_interval?</strong>
+
+        <a class="method-permalink" href="#retry_interval?-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Used for checking missing settings on non-nilable types
+It's advised to use retry_interval in your apps to ensure
+the propper type is checked.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="to_h-class-method">
+      <div class="signature">
+        
+        def self.<strong>to_h</strong>
+
+        <a class="method-permalink" href="#to_h-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Generates a hash using the provided values</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="user:String-class-method">
+      <div class="signature">
+        
+        def self.<strong>user</strong> : String
+
+        <a class="method-permalink" href="#user:String-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="user=(value:String)-class-method">
+      <div class="signature">
+        
+        def self.<strong>user=</strong>(value : String)
+
+        <a class="method-permalink" href="#user=(value:String)-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="user?-class-method">
+      <div class="signature">
+        
+        def self.<strong>user?</strong>
+
+        <a class="method-permalink" href="#user?-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Used for checking missing settings on non-nilable types
+It's advised to use user in your apps to ensure
+the propper type is checked.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+
+
+
+
+</div>
+
+</body>
+</html>
